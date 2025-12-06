@@ -123,7 +123,7 @@
 
                 <div class="mb-4">
                     <label for="input-label" class="block text-sm text-center font-medium mb-2 text-zinc-300">
-                        Estimated Profits in 24hrs
+                        Estimated Profits in 12hrs
                     </label>
                     <div class="flex justify-center w-full">
                         <div
@@ -264,7 +264,7 @@
                                         </h2>
                                         <div class="mb-1">
                                             <p class="text-xs text-[#a4a4a4] font-normal">
-                                                Estimated 24 hours returns range from
+                                                Estimated 12 hours returns range from
                                                 {{ $this->strategy['min_roi'] }}% to
                                                 {{ $this->strategy['max_roi'] }}%, depending on market
                                                 conditions.
