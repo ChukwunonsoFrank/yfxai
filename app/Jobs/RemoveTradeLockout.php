@@ -28,7 +28,7 @@ class RemoveTradeLockout implements ShouldQueue
     /**
      * Fetch all users with the is_lockout_active set to true and batch process.
      */
-    User::select(['id', 'is_lockout_active', 'lockout_ends_in'])
+    User::select(['id', 'is_lockout_active', 'lockout_ends_in', 'name'])
       ->where("is_lockout_active", 1)
       ->chunk(100, function ($users) {
         foreach ($users as $user) {
@@ -68,7 +68,7 @@ class RemoveTradeLockout implements ShouldQueue
         // Send email to notify user when limit has lifted
         $user->notify(
           new LockoutRemoved(
-            $user['name'],
+            $user["name"],
           ),
         );
       });
