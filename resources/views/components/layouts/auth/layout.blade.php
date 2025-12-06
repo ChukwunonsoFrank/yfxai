@@ -22,7 +22,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    {{-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> --}}
 
     <link rel="profile" href="https://gmpg.org/xfn/11">
     <link rel="preload" href="{{ asset('wp-content/uploads/2024/06/space-cover.webp') }}" as="image">
@@ -904,30 +904,30 @@
     </script>
 
     <script>
-    async function forceClearCache() {
-      if ('serviceWorker' in navigator) {
+        async function forceClearCache() {
+            if ('serviceWorker' in navigator) {
 
-        // 1. Get all cache names
-        const cacheNames = await caches.keys();
+                // 1. Get all cache names
+                const cacheNames = await caches.keys();
 
-        // 2. Delete all caches
-        await Promise.all(
-          cacheNames.map(name => {
-            console.log(`Deleting cache: ${name}`);
-            return caches.delete(name);
-          })
-        );
+                // 2. Delete all caches
+                await Promise.all(
+                    cacheNames.map(name => {
+                        console.log(`Deleting cache: ${name}`);
+                        return caches.delete(name);
+                    })
+                );
 
-        // 3. Unregister the Service Worker (Optional but recommended for a hard reset)
-        const registrations = await navigator.serviceWorker.getRegistrations();
-        for (let registration of registrations) {
-          await registration.unregister();
+                // 3. Unregister the Service Worker (Optional but recommended for a hard reset)
+                const registrations = await navigator.serviceWorker.getRegistrations();
+                for (let registration of registrations) {
+                    await registration.unregister();
+                }
+
+                // 4. Reload the page to grab fresh assets
+                window.location.reload(true);
+            }
         }
-
-        // 4. Reload the page to grab fresh assets
-        window.location.reload(true);
-      }
-    }
     </script>
     <script src="https://cdn.gtranslate.net/widgets/latest/popup.js" defer></script>
     <script>

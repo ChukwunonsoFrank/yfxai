@@ -68,7 +68,7 @@
     <link rel="apple-touch-startup-image" href="public/icons/apple-splash-640-1136.jpg" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
     <link rel="apple-touch-startup-image" href="public/icons/apple-splash-1136-640.jpg" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"> --}}
 
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    {{-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> --}}
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -148,30 +148,30 @@
     }
     </script> --}}
     <script>
-    async function forceClearCache() {
-      if ('serviceWorker' in navigator) {
+        async function forceClearCache() {
+            if ('serviceWorker' in navigator) {
 
-        // 1. Get all cache names
-        const cacheNames = await caches.keys();
+                // 1. Get all cache names
+                const cacheNames = await caches.keys();
 
-        // 2. Delete all caches
-        await Promise.all(
-          cacheNames.map(name => {
-            console.log(`Deleting cache: ${name}`);
-            return caches.delete(name);
-          })
-        );
+                // 2. Delete all caches
+                await Promise.all(
+                    cacheNames.map(name => {
+                        console.log(`Deleting cache: ${name}`);
+                        return caches.delete(name);
+                    })
+                );
 
-        // 3. Unregister the Service Worker (Optional but recommended for a hard reset)
-        const registrations = await navigator.serviceWorker.getRegistrations();
-        for (let registration of registrations) {
-          await registration.unregister();
+                // 3. Unregister the Service Worker (Optional but recommended for a hard reset)
+                const registrations = await navigator.serviceWorker.getRegistrations();
+                for (let registration of registrations) {
+                    await registration.unregister();
+                }
+
+                // 4. Reload the page to grab fresh assets
+                window.location.reload(true);
+            }
         }
-
-        // 4. Reload the page to grab fresh assets
-        window.location.reload(true);
-      }
-    }
     </script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="{{ asset('assets/js/clipboard.min.js') }}"></script>
