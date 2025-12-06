@@ -215,7 +215,6 @@
 </div>
 
 @script
-    {{-- scripts --}}
     <script>
         $wire.on('message', (event) => {
             const toastMarkup = `
