@@ -145,8 +145,8 @@ h1.entry-title {
 }
 
 .site-header .site-branding .site-logo img {
-  width: 40px;
-  max-width: 40px;
+  width: 100px;
+  max-width: 100px;
 }
 
 .site-header .site-navigation ul.menu li a {

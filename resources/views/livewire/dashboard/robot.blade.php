@@ -856,10 +856,10 @@
                     }
                 }
 
-                if (wire.isLockoutActive) {
-                    wire.redirectToLockoutRoute();
-                    return;
-                }
+                // if (wire.isLockoutActive ) {
+                //     wire.redirectToLockoutRoute();
+                //     return;
+                // }
 
                 if (wire.accountStatus === 'inactive') {
                     toastRobotError(

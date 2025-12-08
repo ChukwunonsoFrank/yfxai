@@ -7,7 +7,7 @@
                     <div class="flex items-center justify-end p-1">
                         <div class="flex-none">
                             <a
-                                href="{{ route(auth()->user()->is_lockout_active ? 'dashboard.robot.lockout' : 'dashboard.robot') }}">
+                                href="{{ route(auth()->user()->lockout_ends_in && auth()->user()->lockout_two_ends_in ? 'dashboard.robot.lockout' : 'dashboard.robot') }}">
                                 <button type="button"
                                     class="relative px-2 py-1 inline-flex items-center gap-x-[2px] text-[11px] font-bold tracking-[0.15px] rounded-md bg-dashboard border border-accent text-white focus:outline-hidden">
                                     <div>
@@ -1416,6 +1416,7 @@
                 }, 1000);
 
                 if (this.$wire.activeBotCount > 1) {
+                  console.log('ran2');
                     this.botTwoTimerInterval = setInterval(() => {
                         this.refreshBotTwoTimer();
                     }, 1000);

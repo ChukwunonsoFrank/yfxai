@@ -35,7 +35,8 @@
             <!-- Hamburger Toggle BTN -->
 
             <a href="#" class="lg:hidden">
-                <img src="{{ asset('wp-content/uploads/2023/05/yfxai-logo-blue.png') }}" alt="Logo" />
+                <img class="w-24" src="{{ asset('wp-content/uploads/2023/05/yfxai-logo-blue.png') }}"
+                    alt="Logo" />
             </a>
 
             <!-- Application nav menu button -->
