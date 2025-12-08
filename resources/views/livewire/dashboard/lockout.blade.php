@@ -6,7 +6,7 @@
                 <div class="max-w-sm mx-auto p-6 bg-dim rounded-2xl text-center border border-[#26252a]">
                     <div class="flex items-center justify-center gap-x-2 my-4">
                         <div class="flex-none">
-                            <div class="flex items-center justify-center size-16 gap-x-2 rounded-full bg-green-500">
+                            <div class="flex items-center justify-center size-16 gap-x-2 rounded-full bg-accent">
                                 <div class="flex-none">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36"
                                         viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2"
@@ -21,21 +21,33 @@
                             </div>
                         </div>
                     </div>
-                    <div class="text-center mb-4">
-                        <p class="text-xs font-bold leading-5 text-[#a4a4a4] mb-1">
+                    <div class="text-center mb-6">
+                        <p class="text-xs leading-5 text-white mb-1">
                             Next session available in
                         </p>
 
-                        <p x-text="timer" class="text-2xl font-bold text-white"></p>
+                        <p x-text="timer" class="text-2xl font-bold text-accent"></p>
                     </div>
-                    <h1 class="text-white text-sm lg:text-2xl font-bold mb-4"><span
-                            class="text-green-500">Status</span>: Strategy Reset in Progress</h1>
+                    <h1 class="text-white text-sm lg:text-base font-bold mb-2">Status:
+                        Strategy Reset in Progress</h1>
                     <div class="text-center">
                         <p class="text-xs leading-5 text-[#a4a4a4] mb-4">
                             Each trading session completes a full execution cycle.
                             A short reset is required before the next session begins to ensure execution consistency.
                         </p>
                     </div>
+                    @if ($this->activeBotCount > 0)
+                        <div>
+                            <div>
+                                <a href="{{ route('dashboard.robot.traderoom') }}">
+                                    <button type="button"
+                                        class="p-3 w-full text-center text-sm font-semibold rounded-lg bg-accent text-white shadow-2xs cursor-pointer focus:outline-hidden disabled:opacity-50 disabled:pointer-events-none">
+                                        Go to active trade
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>
@@ -123,18 +135,74 @@
                 return `${minuteString}:${secondString}`;
             },
 
-            refreshTimer() {
-                this.timeLeft = this.calculateTimeLeftTillNextCheckpoint(this.$wire
-                    .timerCheckpoint);
+            async refreshTimer() {
+                if (this.$wire.timerCheckpointOne && Date.now() < this.$wire
+                    .timerCheckpointOne) {
+                    this.timeLeft = this.calculateTimeLeftTillNextCheckpoint(this.$wire
+                        .timerCheckpointOne);
 
-                if (Date.now() > this.$wire.timerCheckpoint) {
-                    this.timer = '00:00'
+                    let formatted = this.formatTimeLeft(this.timeLeft.minutes, this
+                        .timeLeft
+                        .seconds);
+
+                    this.timer = formatted;
+                    return;
                 }
 
-                let formatted = this.formatTimeLeft(this.timeLeft.minutes, this
-                    .timeLeft
-                    .seconds);
-                this.timer = formatted;
+                if (this.$wire.activeBotCount > 0 && this.$wire
+                    .timerCheckpointOne && Date.now() > this.$wire
+                    .timerCheckpointOne) {
+                    this.$wire.redirectToTraderoomRoute();
+                    return;
+                }
+
+                if (this.$wire.timerCheckpointTwo && Date.now() < this.$wire
+                    .timerCheckpointTwo) {
+                    this.timeLeft = this.calculateTimeLeftTillNextCheckpoint(this.$wire
+                        .timerCheckpointTwo);
+
+                    let formatted = this.formatTimeLeft(this.timeLeft.minutes, this
+                        .timeLeft
+                        .seconds);
+
+                    this.timer = formatted;
+                    return;
+                }
+
+                if (this.$wire.activeBotCount > 0 && this.$wire
+                    .timerCheckpointTwo && Date.now() > this.$wire
+                    .timerCheckpointTwo) {
+                    this.$wire.redirectToTraderoomRoute();
+                    return;
+                }
+
+                if (Date.now() > this.$wire.timerCheckpointOne || Date.now() > this.$wire
+                    .timerCheckpointTwo) {
+                    await this.$wire.refreshBotData();
+                    if (this.$wire.activeBotCount === 0 && !this.$wire.timerCheckpointOne && !
+                        this
+                        .$wire.timerCheckpointTwo) {
+                        this.$wire.redirectToRobotSetupRoute();
+                        return;
+                    }
+                }
+                // this.timeLeft = this.calculateTimeLeftTillNextCheckpoint(this.$wire
+                //     .timerCheckpointOne);
+
+                // if (this.$wire.activeBotCount === 0 && Date.now() > this.$wire.timerCheckpointOne) {
+                //     this.timer = '00:00';
+                //     this.$wire.redirectToRobotSetupRoute();
+                // }
+
+                // if (this.$wire.activeBotCount > 0 && Date.now() > this.$wire.timerCheckpointOne) {
+                //     this.timer = '00:00';
+                //     this.$wire.redirectToTraderoomRoute();
+                // }
+
+                // let formatted = this.formatTimeLeft(this.timeLeft.minutes, this
+                //     .timeLeft
+                //     .seconds);
+                // this.timer = formatted;
             },
         }))
     })

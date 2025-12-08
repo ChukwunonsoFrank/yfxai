@@ -10,7 +10,7 @@
                     <div class="w-full flex flex-col bg-dashboard rounded-xl pointer-events-auto">
                         <div class="flex justify-between items-center py-3 px-4 border-b border-[#26252a]">
                             <h3 id="hs-vertically-centered-modal-label" class="font-bold text-white">
-                                How to use the Moxyai Robot
+                                How to use the Yfxai Robot
                             </h3>
                             <button type="button"
                                 class="size-8 inline-flex justify-center items-center gap-x-2 rounded-full border border-transparent bg-dim text-white  focus:outline-hidden disabled:opacity-50 disabled:pointer-events-none"
@@ -48,7 +48,7 @@
                                 </ul>
                             </div>
                             <div class="mt-4 text-white text-sm">
-                                Feel free to contact us if you need any help with using the Moxyai Robot.
+                                Feel free to contact us if you need any help with using the Yfxai Robot.
                             </div>
                         </div>
                     </div>
@@ -407,12 +407,12 @@
                                         </svg>
                                     </div>
                                     <div>
-                                        <h1 class="text-white font-bold text-base">Install Moxyai</h1>
+                                        <h1 class="text-white font-bold text-base">Install Yfxai</h1>
                                         <p class="text-white text-xs">Add to your phone</p>
                                     </div>
                                 </div>
                                 <p class="text-white font-medium text-sm mb-4">
-                                    Install Moxyai App on your phone for quick and easy access.
+                                    Install Yfxai App on your phone for quick and easy access.
                                 </p>
 
                                 <div class="mt-6 grid grid-cols-1 gap-y-2">
@@ -453,17 +453,17 @@
                                         </svg>
                                     </div>
                                     <div>
-                                        <h1 class="text-white font-bold text-base">Install Moxyai</h1>
+                                        <h1 class="text-white font-bold text-base">Install Yfxai</h1>
                                         <p class="text-white text-xs">Add to your phone</p>
                                     </div>
                                 </div>
                                 <p class="text-white font-medium text-sm mb-4">
-                                    Install Moxyai App on your phone for quick and easy access.
+                                    Install Yfxai App on your phone for quick and easy access.
                                 </p>
 
                                 <div class="mt-6 grid grid-cols-1 gap-y-2">
                                     <div>
-                                        <a href="/appmoxyai.apk">
+                                        <a href="/appyfxai.apk">
                                             <button id="chromeInstallBtn" type="button" type="button"
                                                 class="p-3 w-full text-center text-sm font-semibold rounded-lg border border-transparent bg-accent text-white cursor-pointer hover:bg-accent focus:outline-hidden focus:bg-accent disabled:opacity-50 disabled:pointer-events-none">
                                                 Download Now
@@ -834,15 +834,21 @@
             toggleStartRobotConfirmationModal(wire) {
                 if (wire.isBanned) {
                     toastRobotError(
-                        'Your account has been banned. Reach out to support at support@moxyai.com.'
+                        'Your account has been banned. Reach out to support at support@yfxai.com.'
                     );
                     return;
                 }
 
                 if (wire.activeBotCount > 0) {
-                    console.log(wire.totalBalance);
-                    console.log(wire.minimumBalanceForDoubleTrades);
-                    if (wire.totalBalance < wire.minimumBalanceForDoubleTrades) {
+                    if (wire.accountTypeSlug === 'live' && wire.totalLiveBalance < wire
+                        .minimumBalanceForDoubleTrades) {
+                        let message =
+                            `Multiple bots are available only for accounts with a minimum balance of $${wire.minimumBalanceForDoubleTrades}`;
+                        toastRobotError(message);
+                        return;
+                    }
+                    if (wire.accountTypeSlug === 'demo' && wire.totalDemoBalance < wire
+                        .minimumBalanceForDoubleTrades) {
                         let message =
                             `You need to have at least $${wire.minimumBalanceForDoubleTrades} minimum balance to initiate multiple trades`;
                         toastRobotError(message);

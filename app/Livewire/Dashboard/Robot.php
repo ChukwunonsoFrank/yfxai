@@ -6,6 +6,7 @@ use App\Models\Bot;
 use App\Models\Strategy;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
 
@@ -18,7 +19,11 @@ class Robot extends Component
 
   public int $liveAccountBalance;
 
-  public int $totalBalance;
+  public int $demoAccountBalance;
+
+  public int $totalLiveBalance;
+
+  public int $totalDemoBalance;
 
   public string $accountStatus = "";
 
@@ -55,6 +60,8 @@ class Robot extends Component
       $this->dispatch("robot-stopped", message: $message)->self();
     }
 
+    $justLoggedIn = Session::pull("just_logged_in", false);
+
     $this->isBanned = auth()->user()->is_banned;
 
     if (auth()->user()->is_lockout_active) {
@@ -72,24 +79,6 @@ class Robot extends Component
 
     $this->activeBotCount = count($activeBots);
 
-    if (count($activeBots) > 0) {
-      $this->activeBotAmount = $activeBots[0]["amount"];
-      $this->liveAccountBalance = auth()->user()->live_balance;
-      $this->totalBalance = $this->activeBotAmount + $this->liveAccountBalance;
-      $this->totalBalance = $this->normalizeAmount($this->totalBalance);
-    }
-
-    if ($this->activeBotCount === 2) {
-      $this->redirectRoute("dashboard.robot.traderoom");
-    }
-
-    $this->strategies = Strategy::all();
-    $this->strategy = $this->strategies[0];
-    $this->expectedProfitMin = 0;
-    $this->expectedProfitMax = 0;
-    $this->minimumAmount = $this->strategy["min_amount"];
-    $this->accountStatus = auth()->user()->account_status;
-
     if (auth()->user()->live_balance > 0) {
       $this->accountType = "Live account";
       $this->accountTypeSlug = "live";
@@ -99,6 +88,27 @@ class Robot extends Component
       $this->accountTypeSlug = "demo";
       $this->accountBalance = auth()->user()->demo_balance;
     }
+
+    $this->calculateTotalBalance();
+
+    if (count($activeBots) === 1 && $justLoggedIn) {
+      $this->redirectRoute("dashboard.robot.traderoom");
+    }
+
+    if (count($activeBots) === 2) {
+      $this->redirectRoute("dashboard.robot.traderoom");
+    }
+
+    if (count($activeBots) === 0 && auth()->user()->is_lockout_active) {
+      $this->redirectRoute("dashboard.robot.lockout");
+    }
+
+    $this->strategies = Strategy::all();
+    $this->strategy = $this->strategies[0];
+    $this->expectedProfitMin = 0;
+    $this->expectedProfitMax = 0;
+    $this->minimumAmount = $this->strategy["min_amount"];
+    $this->accountStatus = auth()->user()->account_status;
   }
 
   public function calculateProfitExpected()
@@ -135,6 +145,32 @@ class Robot extends Component
     );
   }
 
+  public function calculateTotalBalance()
+  {
+    $activeBots = Bot::where(
+      "user_id",
+      "=",
+      auth()->user()->id,
+      "and",
+    )
+      ->where("status", "=", "active", "and")
+      ->get();
+
+    if (count($activeBots) > 0 && $this->accountTypeSlug === "live") {
+      $this->activeBotAmount = $activeBots[0]["amount"];
+      $this->liveAccountBalance = auth()->user()->live_balance;
+      $this->totalLiveBalance = $this->activeBotAmount + $this->liveAccountBalance;
+      $this->totalLiveBalance = $this->normalizeAmount($this->totalLiveBalance);
+    }
+
+    if (count($activeBots) > 0 && $this->accountTypeSlug === "demo") {
+      $this->activeBotAmount = $activeBots[0]["amount"];
+      $this->demoAccountBalance = auth()->user()->demo_balance;
+      $this->totalDemoBalance = $this->activeBotAmount + $this->demoAccountBalance;
+      $this->totalDemoBalance = $this->normalizeAmount($this->totalDemoBalance);
+    }
+  }
+
   public function selectAccountType(
     string $accountType,
     string $accountTypeSlug,
@@ -145,6 +181,7 @@ class Robot extends Component
       $this->accountTypeSlug === "demo"
       ? auth()->user()->demo_balance
       : auth()->user()->live_balance;
+    $this->calculateTotalBalance();
   }
 
   public function generateAssetToTrade()

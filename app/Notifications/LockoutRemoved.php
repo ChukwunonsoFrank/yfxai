@@ -51,7 +51,7 @@ class LockoutRemoved extends Notification implements ShouldQueue
     return (new MailMessage)
       ->subject('Strategy Reset Complete')
       ->greeting("Hi " . $this->name . ',')
-      ->line("The trading cycle has been reset and ready for new trades. You can now initiate a new trade on the dashboard.");
+      ->line("Your previous trading session has ended successfully. You can now start a new session on your Yfxai bot anytime.");
   }
 
   /**

@@ -6,7 +6,8 @@
                 @if ($this->activeBotCount < 2)
                     <div class="flex items-center justify-end p-1">
                         <div class="flex-none">
-                            <a href="{{ route('dashboard.robot') }}">
+                            <a
+                                href="{{ route(auth()->user()->is_lockout_active ? 'dashboard.robot.lockout' : 'dashboard.robot') }}">
                                 <button type="button"
                                     class="relative px-2 py-1 inline-flex items-center gap-x-[2px] text-[11px] font-bold tracking-[0.15px] rounded-md bg-dashboard border border-accent text-white focus:outline-hidden">
                                     <div>
@@ -33,7 +34,7 @@
                         <div class="hs-carousel-pagination flex justify-center mb-2 gap-x-2">
                         </div>
                     @endif
-                    <div class="hs-carousel relative overflow-hidden w-full min-h-[36rem] rounded-lg border-0">
+                    <div class="hs-carousel relative overflow-hidden w-full min-h-[34rem] rounded-lg border-0">
                         <div
                             class="hs-carousel-body absolute top-0 border-0 bottom-0 start-0 flex flex-nowrap transition-transform duration-700 opacity-0">
                             <div class="hs-carousel-slide border-0">
@@ -911,6 +912,34 @@
                             @endif
                         </div>
                     </div>
+                    @if ($this->activeBotCount > 1)
+                        <div class="flex justify-center mb-2 gap-x-1.5">
+                            <button type="button" class="hs-carousel-prev">
+                                <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M16.8333 13.5C16.6123 13.5 16.4004 13.4122 16.2441 13.2559C16.0878 13.0996 16 12.8877 16 12.6667V10.2175C16.0368 10.0288 16.0073 9.83312 15.9163 9.66372C15.8253 9.49431 15.6786 9.36156 15.5009 9.28799C15.3233 9.21442 15.1257 9.20455 14.9416 9.26005C14.7575 9.31554 14.5982 9.433 14.4908 9.5925L8.79417 15.2892C8.70077 15.3826 8.62667 15.4935 8.57612 15.6155C8.52557 15.7375 8.49955 15.8683 8.49955 16.0004C8.49955 16.1325 8.52557 16.2633 8.57612 16.3853C8.62667 16.5074 8.70077 16.6183 8.79417 16.7117L14.4908 22.4075C14.5982 22.567 14.7575 22.6845 14.9416 22.74C15.1257 22.7955 15.3233 22.7856 15.5009 22.712C15.6786 22.6384 15.8253 22.5057 15.9163 22.3363C16.0073 22.1669 16.0368 21.9712 16 21.7825V19.3333C16 19.1123 16.0878 18.9004 16.2441 18.7441C16.4004 18.5878 16.6123 18.5 16.8333 18.5H21.8333C22.0544 18.5 22.2663 18.4122 22.4226 18.2559C22.5789 18.0996 22.6667 17.8877 22.6667 17.6667V14.3333C22.6667 14.1123 22.5789 13.9004 22.4226 13.7441C22.2663 13.5878 22.0544 13.5 21.8333 13.5H16.8333Z"
+                                        stroke="#3B71FF" stroke-width="1.87" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <circle cx="13.3333" cy="13.3333" r="12.4"
+                                        transform="matrix(-1 0 0 1 29.3333 2.66666)" stroke="#3B71FF"
+                                        stroke-width="1.86667" />
+                                </svg>
+                            </button>
+                            <button type="button" class="hs-carousel-next">
+                                <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M15.1667 13.5C15.3877 13.5 15.5996 13.4122 15.7559 13.2559C15.9122 13.0996 16 12.8877 16 12.6667V10.2175C15.9632 10.0288 15.9928 9.83312 16.0837 9.66372C16.1747 9.49431 16.3214 9.36156 16.4991 9.28799C16.6767 9.21442 16.8743 9.20455 17.0584 9.26005C17.2425 9.31554 17.4018 9.433 17.5092 9.5925L23.2058 15.2892C23.2992 15.3826 23.3733 15.4935 23.4239 15.6155C23.4744 15.7375 23.5005 15.8683 23.5005 16.0004C23.5005 16.1325 23.4744 16.2633 23.4239 16.3853C23.3733 16.5074 23.2992 16.6183 23.2058 16.7117L17.5092 22.4075C17.4018 22.567 17.2425 22.6845 17.0584 22.74C16.8743 22.7955 16.6767 22.7856 16.4991 22.712C16.3214 22.6384 16.1747 22.5057 16.0837 22.3363C15.9928 22.1669 15.9632 21.9712 16 21.7825V19.3333C16 19.1123 15.9122 18.9004 15.7559 18.7441C15.5996 18.5878 15.3877 18.5 15.1667 18.5H10.1667C9.94566 18.5 9.73369 18.4122 9.57741 18.2559C9.42113 18.0996 9.33334 17.8877 9.33334 17.6667V14.3333C9.33334 14.1123 9.42113 13.9004 9.57741 13.7441C9.73369 13.5878 9.94566 13.5 10.1667 13.5H15.1667Z"
+                                        stroke="#3B71FF" stroke-width="1.87" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <circle cx="16" cy="16" r="12.4" stroke="#3B71FF"
+                                        stroke-width="1.86667" />
+                                </svg>
+
+                            </button>
+                        </div>
+                    @endif
                 </div>
                 <!-- End Slider -->
             </div>

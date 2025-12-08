@@ -84,9 +84,9 @@
                                 </div>
                                 <div class="flex-1">
                                     <input id="uid" type="text" class="hidden"
-                                        value="{{ 'https://moxyai.com/register?ref=' . auth()->user()->referral_code }}">
+                                        value="{{ 'https://yfxai.com/register?ref=' . auth()->user()->referral_code }}">
                                     <p class="text-[10px] text-[#a4a4a4]">
-                                        {{ 'https://moxyai.com/register?ref=' . auth()->user()->referral_code }}</p>
+                                        {{ 'https://yfxai.com/register?ref=' . auth()->user()->referral_code }}</p>
                                 </div>
                                 <div class="flex-none text-end">
                                     <button type="button" x-on:click="$store.accountPage.copyUID()"

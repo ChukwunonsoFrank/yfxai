@@ -569,6 +569,24 @@ class Traderoom extends Component
 
       $this->isProcessing = true;
 
+      $botData = null;
+
+      if ($botId === 1) {
+        // Lock the bot row for update
+        $botData = Bot::where("user_id", "=", auth()->user()->id, "and")
+          ->where("status", "active")
+          ->where("id", $this->activeBotOne["id"])
+          ->first();
+      }
+
+      if ($botId === 2) {
+        // Lock the bot row for update
+        $botData = Bot::where("user_id", "=", auth()->user()->id, "and")
+          ->where("status", "active")
+          ->where("id", $this->activeBotTwo["id"])
+          ->first();
+      }
+
       DB::transaction(function () use ($botId) {
         $bot = null;
 
@@ -633,20 +651,53 @@ class Traderoom extends Component
         }
 
         // Check if the bot was stopped very early
-        $hrsLeft = $this->getBotExpirationInHrs($bot->end);
-        if ($hrsLeft > 4) {
-          $user->is_lockout_active = true;
-          $user->lockout_ends_in = strval(
-            now()
-              ->addHours(1)
-              ->getTimestampMs()
-          );
-          $user->save();
+        // $hrsLeft = $this->getBotExpirationInHrs($bot->end);
+        // if ($hrsLeft > 4) {
+        //   $user->is_lockout_active = true;
+        //   $user->lockout_ends_in = strval(
+        //     now()
+        //       ->addHours(1)
+        //       ->getTimestampMs()
+        //   );
+        //   $user->save();
+        // }
+
+        if ($accountType === "live") {
+          if (! $user->lockout_ends_in) {
+            $user->is_lockout_active = true;
+            $user->lockout_ends_in = strval(
+              now()
+                ->addHours(1)
+                ->getTimestampMs()
+            );
+            $user->save();
+          } else {
+            $user->is_lockout_active = true;
+            $user->lockout_two_ends_in = strval(
+              now()
+                ->addHours(1)
+                ->getTimestampMs()
+            );
+            $user->save();
+          }
         }
       });
 
-      session()->flash("message", "Robot has stopped trading");
-      $this->redirectRoute("dashboard.robot");
+      if ($this->activeBotCount > 0 && $botData->account_type === 'demo') {
+        $this->redirectRoute("dashboard.robot.traderoom");
+        return;
+      }
+
+      if ($botData->account_type === 'demo') {
+        $this->redirectRoute("dashboard.robot");
+        return;
+      }
+
+      if ($this->activeBotCount > 1 && $botData->account_type === 'live') {
+        $this->redirectRoute("dashboard.robot.traderoom");
+      } else {
+        $this->redirectRoute("dashboard.robot.lockout");
+      }
     } catch (\Exception $e) {
       $this->dispatch(
         "stop-robot-error",

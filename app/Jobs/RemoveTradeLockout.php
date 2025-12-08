@@ -28,25 +28,40 @@ class RemoveTradeLockout implements ShouldQueue
     /**
      * Fetch all users with the is_lockout_active set to true and batch process.
      */
-    User::select(['id', 'is_lockout_active', 'lockout_ends_in', 'name'])
+    User::select(['id', 'is_lockout_active', 'lockout_ends_in', 'lockout_two_ends_in', 'name'])
       ->where("is_lockout_active", 1)
       ->chunk(100, function ($users) {
         foreach ($users as $user) {
-          $checkpoint = intval($user["lockout_ends_in"]);
+          $lockoutEndsInCheckpoint = intval($user["lockout_ends_in"]);
+          $lockoutTwoEndsInCheckpoint = intval($user["lockout_two_ends_in"]);
           $now = now()->getTimestampMs();
 
           /**
            * Get the current datetime and compare this with the timer_checkpoint
            * of each bot.
            */
-          if ($now > $checkpoint) {
-            $this->removeLockout($user);
+          if ($lockoutEndsInCheckpoint && ! $lockoutTwoEndsInCheckpoint) {
+            if ($now > $lockoutEndsInCheckpoint) {
+              $this->removeLockoutOne($user);
+            }
+          }
+
+          if (! $lockoutEndsInCheckpoint && $lockoutTwoEndsInCheckpoint) {
+            if ($now > $lockoutTwoEndsInCheckpoint) {
+              $this->removeLockoutTwo($user);
+            }
+          }
+
+          if ($lockoutEndsInCheckpoint && $lockoutTwoEndsInCheckpoint) {
+            if ($now > $lockoutEndsInCheckpoint) {
+              $this->removeLockoutOneCheckpoint($user);
+            }
           }
         }
       });
   }
 
-  private function removeLockout($user): void
+  private function removeLockoutOne($user): void
   {
     try {
       DB::transaction(function () use (
@@ -62,6 +77,67 @@ class RemoveTradeLockout implements ShouldQueue
         }
 
         $lockedUser->is_lockout_active = !$lockedUser->is_lockout_active;
+        $lockedUser->lockout_ends_in = '';
+        $lockedUser->save();
+
+        // Send email to notify user when limit has lifted
+        $user->notify(
+          new LockoutRemoved(
+            $user["name"],
+          ),
+        );
+      });
+    } catch (\Exception $e) {
+      logger()->error("User update failed: " . $e->getMessage(), [
+        'user_id' => $user["id"],
+      ]);
+    }
+  }
+
+  private function removeLockoutTwo($user): void
+  {
+    try {
+      DB::transaction(function () use (
+        $user,
+      ) {
+        // Lock user record
+        $lockedUser = User::where("id", "=", $user["id"], "and")
+          ->lockForUpdate()
+          ->first();
+
+        if (!$lockedUser || !$lockedUser->is_lockout_active) {
+          return; // Already processed/unlocked
+        }
+
+        $lockedUser->is_lockout_active = !$lockedUser->is_lockout_active;
+        $lockedUser->lockout_two_ends_in = '';
+        $lockedUser->save();
+
+        // Send email to notify user when limit has lifted
+        $user->notify(
+          new LockoutRemoved(
+            $user["name"],
+          ),
+        );
+      });
+    } catch (\Exception $e) {
+      logger()->error("User update failed: " . $e->getMessage(), [
+        'user_id' => $user["id"],
+      ]);
+    }
+  }
+
+  private function removeLockoutOneCheckpoint($user): void
+  {
+    try {
+      DB::transaction(function () use (
+        $user,
+      ) {
+        // Lock user record
+        $lockedUser = User::where("id", "=", $user["id"], "and")
+          ->lockForUpdate()
+          ->first();
+
         $lockedUser->lockout_ends_in = '';
         $lockedUser->save();
 

@@ -17,7 +17,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Moxyai - Automated AI Trading</title>
+    <title>Yfxai - Automated AI Trading</title>
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -694,11 +694,7 @@
             <div class="site-branding show-logo">
                 <div class="site-logo show">
                     <a href="{{ route('home') }}" class="custom-logo-link" rel="home" aria-current="page"><img
-                            width="646" height="196"
-                            src="{{ asset('wp-content/uploads/2023/05/moxyai-logo.png') }}" class="custom-logo"
-                            alt="TradeLocker" decoding="async" fetchpriority="high"
-                            srcset="{{ asset('wp-content/uploads/2023/05/moxyai-logo.png') }} 646w, {{ asset('wp-content/uploads/2023/05/cropped-Tradelockerlogo-1-300x91.png') }} 300w"
-                            sizes="(max-width: 646px) 100vw, 646px" /></a>
+                            src="{{ asset('wp-content/uploads/2023/05/yfxai-logo.png') }}" class="custom-logo" /></a>
                 </div>
             </div>
             <nav class="site-navigation show">
@@ -779,49 +775,17 @@
                 <div class="footer-column">
                     <div class="tradelocker-logo-container">
                         <a class="tradelocker-logo" href="{{ route('home') }}">
-                            <svg width="181" height="40" viewBox="0 0 181 40" fill="none"
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
-                                    d="M64.0209 18.9307V31.063H58.2396V18.4011C58.2396 15.6059 57.0995 14.208 54.82 14.208C53.4896 14.208 52.4647 14.6154 51.746 15.4296C51.0267 16.2437 50.667 17.3705 50.667 18.8085V31.063H44.8857V9.72912H50.2189V12.3346C51.3316 10.2721 53.3807 9.24023 56.3669 9.24023C59.1894 9.24023 61.2525 10.2447 62.5556 12.2531C64.3736 10.2447 66.7353 9.24023 69.6399 9.24023C72.1365 9.24023 74.05 10.0137 75.3805 11.5612C76.7102 13.108 77.3755 15.1711 77.3755 17.7499V31.063H71.5942V18.4011C71.5942 15.6059 70.4541 14.208 68.1745 14.208C66.8167 14.208 65.7855 14.6218 65.0802 15.4499C64.3742 16.2781 64.0216 17.4386 64.0216 18.9307H64.0209Z"
-                                    fill="white" />
+                                    d="M14.3448 1.34265L6.50032 13.7435L3.78858 18.0317C3.51538 18.4653 3.09185 18.6582 2.67078 18.6582C1.98912 18.6582 1.31745 18.1469 1.31745 17.3173V5.34258L5.75098 12.3525L7.92138 8.92398L5.65572 5.34258H1.31738V2.50058C1.31738 1.86152 1.83618 1.34265 2.47778 1.34265H14.3448Z"
+                                    fill="#40FFDD" />
                                 <path
-                                    d="M100.419 28.315C98.3558 30.4729 95.6555 31.5519 92.3167 31.5519C88.9779 31.5519 86.2769 30.4729 84.2145 28.315C82.1514 26.157 81.1201 23.5178 81.1201 20.3961C81.1201 17.2743 82.1514 14.6351 84.2145 12.4772C86.2769 10.3192 88.9779 9.24023 92.3167 9.24023C95.6555 9.24023 98.3558 10.3192 100.419 12.4772C102.481 14.6351 103.513 17.275 103.513 20.3961C103.513 23.5171 102.481 26.157 100.419 28.315ZM88.4285 15.9586C87.4107 17.0445 86.902 18.5233 86.902 20.3961C86.902 22.2688 87.4107 23.7489 88.4285 24.8336C89.4464 25.9195 90.7425 26.4619 92.3167 26.4619C93.8909 26.4619 95.187 25.9189 96.2048 24.8336C97.2227 23.7482 97.7313 22.2688 97.7313 20.3961C97.7313 18.5233 97.2227 17.0439 96.2048 15.9586C95.187 14.8732 93.8903 14.3302 92.3167 14.3302C90.7431 14.3302 89.4464 14.8732 88.4285 15.9586Z"
-                                    fill="white" />
-                                <path
-                                    d="M126.394 9.73047L118.679 20.2313L126.639 31.0644H119.676L115.198 24.9686L110.72 31.0644H103.758L111.718 20.2319L104.002 9.73047H110.964L115.199 15.4946L119.433 9.73047H126.395H126.394Z"
-                                    fill="white" />
-                                <path
-                                    d="M134.565 30.7289L126.189 9.73047H132.337L137.193 23.8934L142.638 9.73047H148.663L139.422 32.8149C138.391 35.393 137.156 37.232 135.717 38.3314C134.278 39.4307 132.554 39.9801 130.546 39.9801L128.796 39.8579V34.8908C129.094 34.9449 129.46 34.9722 129.895 34.9722C130.869 34.9722 131.694 34.7609 132.371 34.3408C133.047 33.9187 133.643 33.0689 134.157 31.792L134.565 30.7289H134.565Z"
-                                    fill="white" />
-                                <path
-                                    d="M155.381 16.774L149.844 15.7562C150.197 13.8567 151.14 12.2958 152.674 11.0742C154.207 9.85266 156.426 9.24219 159.33 9.24219C162.425 9.24219 164.758 9.93413 166.333 11.3187C167.907 12.7026 168.695 14.6568 168.695 17.1814V25.446C168.695 26.369 169.075 26.8305 169.835 26.8305L170.445 26.7898V31.1865C170.146 31.2948 169.645 31.3495 168.939 31.3495C166.497 31.3495 164.881 30.4679 164.094 28.7033C162.33 30.6034 159.873 31.5532 156.726 31.5532C154.256 31.5532 152.39 30.9695 151.128 29.8026C149.865 28.6358 149.234 27.1297 149.234 25.2837C149.233 21.505 152.01 19.1554 157.563 18.2362L163.199 17.3037V17.1407C163.199 15.0509 161.909 14.0056 159.331 14.0056C156.969 14.0056 155.653 14.9286 155.382 16.774H155.381ZM163.198 21.4713L158.123 22.435C156.95 22.6489 156.105 22.9481 155.588 23.3351C155.07 23.7222 154.811 24.2346 154.811 24.8743C154.811 26.3416 155.883 27.0743 158.028 27.0743C159.683 27.0743 160.959 26.6383 161.855 25.7643C162.751 24.8909 163.199 23.7152 163.199 22.2371V21.4713H163.198Z"
-                                    fill="white" />
-                                <path
-                                    d="M179.483 5.98436C178.832 6.63557 177.99 6.9615 176.959 6.9615C175.928 6.9615 175.086 6.63557 174.435 5.98436C173.784 5.33315 173.458 4.50562 173.458 3.50112C173.458 2.49661 173.784 1.66271 174.435 0.997503C175.086 0.332927 175.927 0 176.959 0C177.991 0 178.832 0.332927 179.483 0.997503C180.134 1.66271 180.46 2.49725 180.46 3.50112C180.46 4.50498 180.134 5.33315 179.483 5.98436ZM174.068 31.0638V9.72993H179.85V31.0638H174.068Z"
-                                    fill="white" />
-                                <path
-                                    d="M10.411 10.6882V12.5476L9.17929 12.3547L5.92389 11.8461V29.183L0 30.7553V9.05859L5.92389 9.98608L9.17929 10.4953L10.411 10.6882Z"
-                                    fill="#3C70FD" />
-                                <path opacity="0.1"
-                                    d="M10.4114 10.687V12.5464L9.17969 12.3535V10.4941L10.4114 10.687Z"
-                                    fill="#0C0078" />
-                                <path
-                                    d="M22.8706 9.0007V10.918L21.6395 10.5488L18.3262 9.55897V31.6459L10.4111 35.2425V5.28125L12.1025 5.78604L18.3262 7.64227L21.6395 8.6315L22.8706 9.0007Z"
-                                    fill="#49A2FE" />
-                                <path d="M18.3262 7.63693V7.64139L12.1025 5.78516L18.3262 7.63693Z"
-                                    fill="url(#paint0_linear_598_339)" />
-                                <path opacity="0.1"
-                                    d="M22.8708 9.00006V10.9174L21.6396 10.5482V8.63086L22.8708 9.00006Z"
-                                    fill="#0C0078" />
-                                <path d="M32.6822 7.37881V32.1011L22.8701 40.0003V1.99219L32.6822 7.37881Z"
-                                    fill="#55CFFF" />
-                                <defs>
-                                    <linearGradient id="paint0_linear_598_339" x1="12.1025" y1="6.71327"
-                                        x2="18.3262" y2="6.71327" gradientUnits="userSpaceOnUse">
-                                        <stop stop-color="#3C70FD" />
-                                        <stop offset="1" stop-color="#55CFFF" />
-                                    </linearGradient>
-                                </defs>
+                                    d="M18.6832 1.34192V17.4995C18.6832 18.1386 18.1644 18.6575 17.5228 18.6575H7.72852L16.1519 5.34185L18.6832 1.34192H18.6832Z"
+                                    fill="#40FFDD" />
+                                <path opacity="0.07"
+                                    d="M14.3447 1.34265L6.50025 13.7435L3.78852 18.0317C3.51532 18.4653 3.09178 18.6582 2.67072 18.6582C1.98905 18.6582 1.31738 18.1469 1.31738 17.3173V17.0166C1.31738 17.6958 2.20458 17.9514 2.56798 17.3775L5.75085 12.3525L7.92125 8.92398L12.7206 1.34265H14.3447Z"
+                                    fill="black" />
                             </svg>
                         </a>
                         <p>Unlock your potential.</p>
@@ -867,7 +831,7 @@
         <div class="elementor-container">
             <div class="app-wrapper">
                 <ul class="app-links">
-                    <a href="/appmoxyai.apk">
+                    <a href="/appyfxai.apk">
                         <li class="playstore">
                             <div class="supertitle">Get it on</div>
                             <div class="title">Google Play</div>
@@ -886,7 +850,7 @@
     <div class="disclaimer elementor-section elementor-section-boxed">
         <div class="elementor-container">
             <p style="font-size:14px">
-                Moxyai is available worldwide with no regional restrictions. Access to our platform is limited
+                Yfxai is available worldwide with no regional restrictions. Access to our platform is limited
                 to individuals aged 18 years and above. By using our services, you acknowledge that you understand these
                 risks and agree to our Terms & Conditions. Our platform operates with transparency, instant
                 deposits/withdrawals, and 24/7 support to ensure a secure trading environment.
@@ -894,7 +858,7 @@
         </div>
         <br>
         <div style="text-align: center;">
-            <p style="font-size:14px">Moxyai © <span id="year">{{ now()->year }}</span>. All rights reserved.
+            <p style="font-size:14px">Yfxai © <span id="year">{{ now()->year }}</span>. All rights reserved.
             </p>
         </div>
     </div>

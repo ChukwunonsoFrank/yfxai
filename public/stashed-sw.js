@@ -1,4 +1,4 @@
-const CACHE_NAME = "moxyai-pwa-v1";
+const CACHE_NAME = "yfxai-pwa-v1";
 const urlsToCache = [
     "/",
     "/offline", // Add this!

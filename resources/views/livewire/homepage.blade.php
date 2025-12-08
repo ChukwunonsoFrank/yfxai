@@ -19,8 +19,8 @@
                                 <div class="title-block text-left flex-wrap justify-start" style="text-align:left">
                                     <h1 class="title-block_child">AI Powered Trading Robot For Everyone</h1>
                                     <h4 class="title-block_child">AI Robot That Trades For You And <a
-                                            href="{{ route('home') }}"
-                                            style="font:inherit;letter-spacing:inherit">Makes Daily Profit</a>.</h4>
+                                            href="{{ route('home') }}" style="font:inherit;letter-spacing:inherit">Makes
+                                            Daily Profit</a>.</h4>
                                     <!-- Refactored Button Rendering -->
                                     <div class="button-wrapper title-block_child justify-start">
                                         <a href="{{ route('register') }}">
@@ -138,7 +138,7 @@
                                                 <h2 class="main-block_child"><span
                                                         class="purple-gradient">AI-Powered</span> Scalping Technology
                                                 </h2>
-                                                <p class="main-block_child">Moxyai uses a cutting-edge AI scalping
+                                                <p class="main-block_child">Yfxai uses a cutting-edge AI scalping
                                                     strategy that opens and closes trades in seconds.</p>
                                                 <!-- Refactored Button Rendering -->
                                                 <div class="button-wrapper main-block_child justify-start">
@@ -280,7 +280,7 @@
                                                 </div>
                                                 <h2 class="main-block_child">Fully Licensed & Secured
                                                 </h2>
-                                                <p class="main-block_child">Moxyai is a fully registered and licensed
+                                                <p class="main-block_child">Yfxai is a fully registered and licensed
                                                     company based in France at 62 Av. Jean Jaurès, 92120 Châtillon. The
                                                     platform is encrypted with top-grade security standards, ensuring
                                                     your funds and data remain protected at all times.</p>
@@ -393,7 +393,7 @@
                                                 <h2 class="main-block_child">Referral Program
                                                 </h2>
                                                 <p class="main-block_child">Earn passive income by inviting others.
-                                                    Moxyai’s two-level referral system gives Level 1: 5% on deposits &
+                                                    Yfxai’s two-level referral system gives Level 1: 5% on deposits &
                                                     8% on trades. Level 2: 2% on deposits & 4% on trades.</p>
                                                 <!-- Refactored Button Rendering -->
                                                 <div class="button-wrapper main-block_child justify-start">
@@ -502,7 +502,7 @@
                                                 </div>
                                                 <h2 class="main-block_child">Worldwide Access
                                                 </h2>
-                                                <p class="main-block_child">Accessible from any country, Moxyai allows
+                                                <p class="main-block_child">Accessible from any country, Yfxai allows
                                                     users to trade, deposit, and withdraw globally with no restrictions.
                                                 </p>
                                                 <!-- Refactored Button Rendering -->
@@ -658,7 +658,7 @@
                                                                     class="elementor-toggle-icon-opened fas fa-caret-up"></i></span>
                                                         </span>
                                                         <a href="#" class="elementor-toggle-title">How does
-                                                            Moxyai
+                                                            Yfxai
                                                             works?</a>
                                                     </div>
 
@@ -667,7 +667,7 @@
                                                         data-tab="1" role="tabpanel"
                                                         aria-labelledby="elementor-tab-title-3551">
                                                         <p>
-                                                            Moxyai is an automated AI trading bot that helps you trade
+                                                            Yfxai is an automated AI trading bot that helps you trade
                                                             the
                                                             forex and crypto
                                                             market easily with a proven scalping strategy powered by a
@@ -705,7 +705,7 @@
                                                         <p>
                                                             No, you don't need any trading skills to profit from this,
                                                             you can earn from
-                                                            Moxyai with zero knowledge in trading. The AI bot handles
+                                                            Yfxai with zero knowledge in trading. The AI bot handles
                                                             all
                                                             the trades for you
                                                             and make profits, all you need to do is start the robot.
@@ -733,7 +733,7 @@
                                                         data-tab="3" role="tabpanel"
                                                         aria-labelledby="elementor-tab-title-3553">
                                                         <p>
-                                                            Moxyai does not charge any hidden fees. However, there’s a
+                                                            Yfxai does not charge any hidden fees. However, there’s a
                                                             small $1 withdrawal fee applied to every withdrawals to
                                                             cover network and processing costs.
                                                         </p>
@@ -752,7 +752,7 @@
                                                                     class="elementor-toggle-icon-opened fas fa-caret-up"></i></span>
                                                         </span>
                                                         <a href="#" class="elementor-toggle-title">How does
-                                                            Moxyai benefit or make profit?</a>
+                                                            Yfxai benefit or make profit?</a>
                                                     </div>
 
                                                     <div id="elementor-tab-content-3553"
@@ -840,7 +840,7 @@
                                                             <span class="elementor-toggle-icon-opened"><i
                                                                     class="elementor-toggle-icon-opened fas fa-caret-up"></i></span>
                                                         </span>
-                                                        <a href="#" class="elementor-toggle-title">Does Moxyai
+                                                        <a href="#" class="elementor-toggle-title">Does Yfxai
                                                             increase my returns daily?</a>
                                                     </div>
 
@@ -913,7 +913,7 @@
                                                         data-tab="7" role="tabpanel"
                                                         aria-labelledby="elementor-tab-title-3557">
                                                         <p>
-                                                            Getting started with Moxyai is very easy, you don't need any
+                                                            Getting started with Yfxai is very easy, you don't need any
                                                             technical knowledge to earn from this. there is a scalping
                                                             strategy already setup for you, all you need to do is input
                                                             a trade amount and choose if it’s Demo or Live you’d want to

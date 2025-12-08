@@ -11,8 +11,8 @@ return new class extends Migration
    */
   public function up(): void
   {
-    Schema::table('bots', function (Blueprint $table) {
-      $table->dropColumn('duration_type');
+    Schema::table('users', function (Blueprint $table) {
+      $table->string('lockout_two_ends_in')->after('lockout_ends_in')->default('');
     });
   }
 
@@ -21,6 +21,8 @@ return new class extends Migration
    */
   public function down(): void
   {
-    //
+    Schema::table('users', function (Blueprint $table) {
+      $table->dropColumn('lockout_two_ends_in');
+    });
   }
 };

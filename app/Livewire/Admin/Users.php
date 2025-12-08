@@ -90,7 +90,7 @@ class Users extends Component
     }
 
     // Get the Redis prefix
-    $prefix = config("database.redis.options.prefix", "moxyai_database_");
+    $prefix = config("database.redis.options.prefix", "yfxai_database_");
 
     // Delete each session from Redis
     foreach ($sessionIds as $sessionId) {

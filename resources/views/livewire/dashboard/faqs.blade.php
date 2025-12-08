@@ -12,7 +12,7 @@
                         <button
                             class="hs-accordion-toggle hs-accordion-active:text-white py-4 px-5 inline-flex items-center justify-between gap-x-3 w-full font-semibold text-start text-white hover:text-white rounded-lg disabled:opacity-50 disabled:pointer-events-none"
                             aria-expanded="true" aria-controls="hs-basic-with-title-and-arrow-stretched-collapse-one">
-                            How does Moxyai works?
+                            How does Yfxai works?
                             <svg class="hs-accordion-active:hidden block size-4" xmlns="http://www.w3.org/2000/svg"
                                 width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -28,7 +28,7 @@
                             class="pb-4 px-5 pt-4 hs-accordion-content w-full overflow-hidden transition-[height] duration-300"
                             role="region" aria-labelledby="hs-basic-with-title-and-arrow-stretched-heading-one">
                             <p class="text-white text-sm">
-                                Moxyai is an automated Ai trading bot that helps you trade the forex and crypto
+                                Yfxai is an automated Ai trading bot that helps you trade the forex and crypto
                                 market easily with a proven scalping strategy powered by a strong algorithm that
                                 trades the market, opens and closes trades within seconds targeting profits per
                                 trade which in end accumulates profits gradually. All you need to do is create
@@ -60,7 +60,7 @@
                             role="region" aria-labelledby="hs-basic-with-title-and-arrow-stretched-heading-two">
                             <p class="text-white text-sm">
                                 No, you don't need any trading skills to profit from this, you can earn from
-                                Moxyai with zero knowledge in trading. The Ai bot handles all the trades for you
+                                Yfxai with zero knowledge in trading. The Ai bot handles all the trades for you
                                 and make profits, all you need to do is start the robot.
                             </p>
                         </div>
@@ -88,7 +88,7 @@
                             class="pb-4 px-5 pt-4 hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300"
                             role="region" aria-labelledby="hs-basic-with-title-and-arrow-stretched-heading-three">
                             <p class="text-white text-sm">
-                                Moxyai does not charge any hidden fees. However, there’s a small $1 withdrawal fee
+                                Yfxai does not charge any hidden fees. However, there’s a small $1 withdrawal fee
                                 applied to every withdrawals to cover network and processing costs.
                             </p>
                         </div>
@@ -99,7 +99,7 @@
                         <button
                             class="hs-accordion-toggle hs-accordion-active:text-white py-4 px-5 inline-flex items-center justify-between gap-x-3 w-full font-semibold text-start text-white hover:text-white rounded-lg disabled:opacity-50 disabled:pointer-events-none"
                             aria-expanded="false" aria-controls="hs-basic-with-title-and-arrow-stretched-collapse-12">
-                            How does Moxyai benefit or make profit?
+                            How does Yfxai benefit or make profit?
                             <svg class="hs-accordion-active:hidden block size-4" xmlns="http://www.w3.org/2000/svg"
                                 width="24" height="24" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -193,7 +193,7 @@
                             class="hs-accordion-toggle hs-accordion-active:text-white py-4 px-5 inline-flex items-center justify-between gap-x-3 w-full font-semibold text-start text-white hover:text-white rounded-lg disabled:opacity-50 disabled:pointer-events-none"
                             aria-expanded="false"
                             aria-controls="hs-basic-with-title-and-arrow-stretched-collapse-six">
-                            Does Moxyai increase my returns daily?
+                            Does Yfxai increase my returns daily?
                             <svg class="hs-accordion-active:hidden block size-4" xmlns="http://www.w3.org/2000/svg"
                                 width="24" height="24" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -276,7 +276,7 @@
                             class="pb-4 px-5 pt-4 hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300"
                             role="region" aria-labelledby="hs-basic-with-title-and-arrow-stretched-heading-eight">
                             <p class="text-white text-sm">
-                                Getting started with Moxyai is very easy, you don't need any
+                                Getting started with Yfxai is very easy, you don't need any
                                 technical knowledge to earn from this. there is a scalping
                                 strategy already setup for you, all you need to do is input
                                 a trade amount and choose if it’s Demo or Live you’d want to

@@ -7,21 +7,27 @@ use Livewire\Component;
 
 class DesktopNavbar extends Component
 {
-    public function robot()
-    {
-        $activeBot = Bot::where("user_id", "=", auth()->user()->id, "and")
-            ->where("status", "=", "active", "and")
-            ->first();
+  public function robot()
+  {
+    $activeBots = Bot::where("user_id", "=", auth()->user()->id, "and")
+      ->where("status", "=", "active", "and")
+      ->get();
 
-        if ($activeBot) {
-            $this->redirectRoute("dashboard.robot.traderoom");
-        } else {
-            $this->redirectRoute("dashboard.robot");
-        }
+    if (count($activeBots) === 0 && auth()->user()->is_lockout_active) {
+      $this->redirectRoute("dashboard.robot.lockout");
     }
 
-    public function render()
-    {
-        return view("livewire.dashboard.partials.desktop-navbar");
+    if (count($activeBots) === 0 && ! auth()->user()->is_lockout_active) {
+      $this->redirectRoute("dashboard.robot");
     }
+
+    if (count($activeBots) > 0) {
+      $this->redirectRoute("dashboard.robot.traderoom");
+    }
+  }
+
+  public function render()
+  {
+    return view("livewire.dashboard.partials.desktop-navbar");
+  }
 }

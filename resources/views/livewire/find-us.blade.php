@@ -36,9 +36,9 @@
                 </svg>
             </div>
             <div>
-              <a href="https://maps.app.goo.gl/1uAg3Jj3NB4TqyU96" style="text-decoration: underline;">
-                <p class="text-white text-sm font-bold">62 Av. Jean Jaurès, 92120 Châtillon, France</p>
-              </a>
+                <a href="https://maps.app.goo.gl/1uAg3Jj3NB4TqyU96" style="text-decoration: underline;">
+                    <p class="text-white text-sm font-bold">62 Av. Jean Jaurès, 92120 Châtillon, France</p>
+                </a>
             </div>
         </div>
 
@@ -67,8 +67,8 @@
                 </svg>
             </div>
             <div>
-                <a href="mailto:support@moxyai.com" class="text-white text-sm"
-                    style="text-decoration: underline;">support@moxyai.com</a>
+                <a href="mailto:support@yfxai.com" class="text-white text-sm"
+                    style="text-decoration: underline;">support@yfxai.com</a>
             </div>
         </div>
     </div>
