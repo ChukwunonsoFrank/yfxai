@@ -162,14 +162,6 @@ class RefreshActiveBots implements ShouldQueue
         );
         $user->save();
       }
-      // check the two timer slots(to be added) for availability/empty values. if one is filled, check the next one and fill it
-      // $user->is_lockout_active = true;
-      //     $user->lockout_ends_in = strval(
-      //       now()
-      //         ->addHours(1)
-      //         ->getTimestampMs()
-      //     );
-      //     $user->save();
 
       // Send email to notify user when bot has expired
       $user->notify(
