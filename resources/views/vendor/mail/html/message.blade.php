@@ -21,7 +21,7 @@
 {{-- Footer --}}
 <x-slot:footer>
 <x-mail::footer>
-{{ __('yfxai is a trademark of Yfxai Inc with the registered address at') }} <a href="https://maps.app.goo.gl/1uAg3Jj3NB4TqyU96" target="_blank" rel="noopener noreferrer">2 Av. Jean Jaurès, 92120 Châtillon, France</a>.
+{{ __('Yfxai is a trademark of Yfxai Inc with the registered address at') }} <a href="" target="_blank" rel="noopener noreferrer">127 Boulevard De La Pétrusse, L-2320, Luxembourg</a>.
 <br><br>
 © {{ date('Y') }} {{ config('app.name') }} Inc. {{ __('All rights reserved.') }}
 <br><br>

@@ -683,7 +683,7 @@
     <noscript><img height="1" width="1" style="display:none"
             src="https://www.facebook.com/tr?id=789556817321629&ev=PageView&noscript=1" /></noscript>
     <!-- End Meta Pixel Code -->
-    <script src="//code.jivosite.com/widget/nr087hBYZF" async></script>
+    {{-- <script src="//code.jivosite.com/widget/nr087hBYZF" async></script> --}}
 </head>
 
 <body
@@ -788,19 +788,19 @@
                                     fill="black" />
                                 <path
                                     d="M33.1628 11.9945V17.5156H29.5325V12.0583L23.8735 2.86353H28.2512L30.6642 6.94061C31.0487 7.64147 31.3048 8.29972 31.4542 8.78798C31.6251 8.29972 31.9026 7.64122 32.2658 6.96179L34.6574 2.86353H38.8002L33.1626 11.9945H33.1628Z"
-                                    fill="#001037" />
+                                    fill="white" />
                                 <path
                                     d="M43.3699 6.21847V6.89789H46.0605V9.76466H43.3699V17.5156H39.825V9.76466H38.5225V6.89789H39.825V6.09085C39.825 2.86318 41.6615 1.37671 44.096 1.37671C44.9076 1.37671 45.5695 1.44052 46.2956 1.61025V4.47702C45.8472 4.39202 45.3773 4.34965 44.865 4.34965C44.0108 4.34965 43.3701 4.94435 43.3701 6.21847H43.3699Z"
-                                    fill="#001037" />
+                                    fill="white" />
                                 <path
                                     d="M58.4459 17.5154H54.1536L53.2782 15.7104C52.9365 15.1157 52.5949 14.3939 52.3385 13.8842C52.1037 14.3727 51.7407 15.0733 51.3775 15.7315L50.3953 17.5154H46.3379L49.9895 12.1218L46.5301 6.89795H50.8224L51.3988 8.17207C51.6763 8.68177 52.0821 9.53118 52.3811 10.1256C52.6373 9.59473 53.0859 8.74532 53.406 8.17207L54.0679 6.89795H58.1253L54.7299 11.9306L58.4456 17.5154H58.4459Z"
-                                    fill="#001037" />
+                                    fill="white" />
                                 <path
                                     d="M70.1908 17.2183V17.5156H66.7314C66.5605 17.0273 66.4966 16.56 66.4537 16.1141C65.7489 17.1547 64.5747 17.728 63.1653 17.728C60.795 17.728 58.4673 16.3265 58.4673 12.2494C58.4673 8.17232 60.8589 6.70703 63.2079 6.70703C64.6173 6.70703 65.7492 7.2591 66.4537 8.2785V6.8982H69.8918V14.9674C69.8918 15.6468 69.9772 16.6024 70.1908 17.2183ZM66.347 13.1412V11.2938C66.0908 10.2532 65.0444 9.67998 64.1473 9.67998C63.336 9.67998 62.1186 10.2109 62.1186 12.207C62.1186 14.2032 63.3999 14.7553 64.2115 14.7553C65.1296 14.7553 66.0905 14.182 66.347 13.1414V13.1412Z"
-                                    fill="#001037" />
+                                    fill="white" />
                                 <path
                                     d="M75.8923 5.05062H72.1553V1.6106H75.8923V5.05062ZM72.2833 6.89799H75.8282V17.5154H72.2833V6.89799Z"
-                                    fill="#001037" />
+                                    fill="white" />
                             </svg>
                         </a>
                         <p>Unlock your potential.</p>
@@ -846,13 +846,13 @@
         <div class="elementor-container">
             <div class="app-wrapper">
                 <ul class="app-links">
-                    <a href="/appyfxai.apk">
+                    <a href="#">
                         <li class="playstore">
                             <div class="supertitle">Get it on</div>
                             <div class="title">Google Play</div>
                         </li>
                     </a>
-                    <a href="https://apps.apple.com/app/ceramicscoat-pro/id6751297821">
+                    <a href="#">
                         <li class="appstore">
                             <div class="supertitle">Download on the</div>
                             <div class="title">App Store</div>
@@ -868,7 +868,7 @@
                 Yfxai is available worldwide with no regional restrictions. Access to our platform is limited
                 to individuals aged 18 years and above. By using our services, you acknowledge that you understand these
                 risks and agree to our Terms & Conditions. Our platform operates with transparency, instant
-                deposits/withdrawals, and 24/7 support to ensure a secure trading environment.
+                deposits/withdrawals, and 24/7 support to ensure a secure trading environment. We are fully licensed and registered under the Luxembourg Registrar with the registration number ‘L482937615’ you can look up the registration number or search ‘Yfxai’ at the Luxembourg registrar <a href="https://luxembourgregistrar.org/search-company" style="text-decoration: underline;">here</a>.
             </p>
         </div>
         <br>

@@ -161,7 +161,7 @@
             </div>
         </div>
         <div class="grow">
-            <iframe frameborder="0" width="100%" height="100%" src="https://jivo.chat/sWAjTT8zPU"></iframe>
+            {{-- <iframe frameborder="0" width="100%" height="100%" src="https://jivo.chat/sWAjTT8zPU"></iframe> --}}
         </div>
     </div>
 </div>

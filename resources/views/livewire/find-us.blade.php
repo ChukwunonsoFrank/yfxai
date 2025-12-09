@@ -16,48 +16,13 @@
                 </svg>
             </div>
             <div>
-                <a href="https://maps.app.goo.gl/1uAg3Jj3NB4TqyU96" class="text-white text-sm"
-                    style="text-decoration: underline;">https://maps.app.goo.gl/1uAg3Jj3NB4TqyU96</a>
-            </div>
-        </div>
-
-        <div class="flex items-center gap-x-2 mb-8">
-            <div>
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide lucide-landmark-icon lucide-landmark">
-                    <path d="M10 18v-7" />
-                    <path
-                        d="M11.12 2.198a2 2 0 0 1 1.76.006l7.866 3.847c.476.233.31.949-.22.949H3.474c-.53 0-.695-.716-.22-.949z" />
-                    <path d="M14 18v-7" />
-                    <path d="M18 18v-7" />
-                    <path d="M3 22h18" />
-                    <path d="M6 18v-7" />
-                </svg>
-            </div>
-            <div>
-                <a href="https://maps.app.goo.gl/1uAg3Jj3NB4TqyU96" style="text-decoration: underline;">
-                    <p class="text-white text-sm font-bold">62 Av. Jean Jaurès, 92120 Châtillon, France</p>
+                <a href="#" style="text-decoration: underline;">
+                    <p class="text-white text-sm font-bold">127 Boulevard De La Pétrusse, L-2320, Luxembourg.</p>
                 </a>
             </div>
         </div>
 
         <div class="flex items-center gap-x-2 mb-8">
-            <div>
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide lucide-smartphone-icon lucide-smartphone">
-                    <rect width="14" height="20" x="5" y="2" rx="2" ry="2" />
-                    <path d="M12 18h.01" />
-                </svg>
-            </div>
-            <div>
-                <a href="tel:+33759048466" class="text-white text-sm" style="text-decoration: underline;">+33 7 59 04 84
-                    66</a>
-            </div>
-        </div>
-
-        <div class="flex items-center gap-x-2">
             <div>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                     stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -69,6 +34,21 @@
             <div>
                 <a href="mailto:support@yfxai.com" class="text-white text-sm"
                     style="text-decoration: underline;">support@yfxai.com</a>
+            </div>
+        </div>
+
+        <div class="flex items-center gap-x-2">
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-text-icon lucide-file-text"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"/><path d="M14 2v5a1 1 0 0 0 1 1h5"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>
+            </div>
+            <div>
+              <p class="text-white text-sm" style="margin-bottom: 4px;">Registration Number: <a href="#" style="text-decoration: underline;">L482937615</a></p>
+              <div class="flex items-center gap-x-1">
+                <div>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search-icon lucide-search"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+                </div>
+                <p class="text-xs text-accent" style="text-decoration: underline;">Verify Now</p>
+              </div>
             </div>
         </div>
     </div>
