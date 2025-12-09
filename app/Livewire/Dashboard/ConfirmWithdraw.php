@@ -31,7 +31,7 @@ class ConfirmWithdraw extends Component
 
   public $fee;
 
-  // public $feePercentage = 2;
+  public $feePercentage = 2;
 
   public $amountToReceive;
 
@@ -49,8 +49,8 @@ class ConfirmWithdraw extends Component
 
   public function calculateFees(int $amount): int
   {
-    // $fee = intval(round($amount * ($this->feePercentage / 100)));
-    return 1;
+    $fee = intval(round($amount * ($this->feePercentage / 100)));
+    return $fee;
   }
 
   public function formatAmountToPay()

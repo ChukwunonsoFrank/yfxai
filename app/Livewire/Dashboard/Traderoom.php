@@ -21,6 +21,14 @@ class Traderoom extends Component
   #[Locked]
   public $isProcessing = false;
 
+  public int $totalLiveBalance;
+
+  public int $minimumBalanceForDoubleTrades = 5000;
+
+  public $lockoutOneTimer;
+
+  public $lockoutTwoTimer;
+
   public $activeBotOne;
 
   public $activeBotTwo;
@@ -96,9 +104,16 @@ class Traderoom extends Component
       $this->dispatch("robot-created", message: $message)->self();
     }
 
+    $this->lockoutOneTimer = auth()->user()->lockout_ends_in;
+    $this->lockoutTwoTimer = auth()->user()->lockout_two_ends_in;
+
     $activeBots = Bot::where("user_id", "=", auth()->user()->id, "and")
       ->where("status", "=", "active", "and")
       ->get();
+
+    if (count($activeBots) > 0) {
+      $this->calculateTotalBalance();
+    }
 
     if (! $activeBots->isEmpty()) {
       $this->activeBotOne = $activeBots[0];
@@ -133,6 +148,32 @@ class Traderoom extends Component
     if (count($activeBots) > 1) {
       $this->initializeBotTwoData();
     }
+  }
+
+
+  public function calculateTotalBalance()
+  {
+    $activeBots = Bot::where(
+      "user_id",
+      "=",
+      auth()->user()->id,
+      "and",
+    )
+      ->where("status", "=", "active", "and")
+      ->get();
+
+    $this->totalLiveBalance = $activeBots[0]["amount"] + auth()->user()->live_balance;
+    $this->totalLiveBalance = $this->normalizeAmount($this->totalLiveBalance);
+  }
+
+  public function redirectToLockoutRoute(): void
+  {
+    $this->redirectRoute("dashboard.robot.lockout");
+  }
+
+  public function redirectToRobotSetupRoute(): void
+  {
+    $this->redirectRoute("dashboard.robot");
   }
 
   public function initializeBotOneData()
