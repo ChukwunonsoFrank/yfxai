@@ -142,7 +142,7 @@
                         @foreach ($level1Downlines as $dl)
                             <div class="flex items-center rounded-full bg-accent px-3 py-2">
                                 <div>
-                                    <p class="text-xs text-white">{{ $dl }}</p>
+                                    <p class="text-xs text-black">{{ $dl }}</p>
                                 </div>
                             </div>
                         @endforeach
@@ -155,7 +155,7 @@
                         @foreach ($level2Downlines as $dl)
                             <div class="flex items-center rounded-full bg-accent px-3 py-2">
                                 <div>
-                                    <p class="text-xs text-white">{{ $dl }}</p>
+                                    <p class="text-xs text-black">{{ $dl }}</p>
                                 </div>
                             </div>
                         @endforeach

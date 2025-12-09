@@ -9,7 +9,7 @@
                             <div class="flex items-center justify-center size-16 gap-x-2 rounded-full bg-accent">
                                 <div class="flex-none">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36"
-                                        viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2"
+                                        viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2"
                                         stroke-linecap="round" stroke-linejoin="round"
                                         class="lucide lucide-timer-reset-icon lucide-timer-reset">
                                         <path d="M10 2h4" />
@@ -41,7 +41,7 @@
                             <div>
                                 <a href="{{ route('dashboard.robot.traderoom') }}">
                                     <button type="button"
-                                        class="p-3 w-full text-center text-sm font-semibold rounded-lg bg-accent text-white shadow-2xs cursor-pointer focus:outline-hidden disabled:opacity-50 disabled:pointer-events-none">
+                                        class="p-3 w-full text-center text-sm font-semibold rounded-lg bg-accent text-black shadow-2xs cursor-pointer focus:outline-hidden disabled:opacity-50 disabled:pointer-events-none">
                                         Go to active trade
                                     </button>
                                 </a>

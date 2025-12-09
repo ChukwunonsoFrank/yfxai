@@ -105,14 +105,14 @@
                         <div class="grid grid-cols-2 gap-x-2">
                             <label for="hs-vertical-radio-in-form-demo"
                                 wire:click="selectAccountType('Demo account', 'demo')"
-                                class="px-4 py-2 w-full {{ $this->accountTypeSlug === 'demo' ? 'border-3 border-[#1E90FF]' : 'border border-[#323335]' }} bg-transparent rounded-lg text-base focus:border-[#1a1b20] focus:ring-[#1a1b20]">
+                                class="px-4 py-2 w-full {{ $this->accountTypeSlug === 'demo' ? 'border-3 border-[#40FFDD]' : 'border border-[#323335]' }} bg-transparent rounded-lg text-base focus:border-[#1a1b20] focus:ring-[#1a1b20]">
                                 <div class="flex-1 text-center">
                                     <h2 class="text-white uppercase font-semibold text-sm">Demo</h2>
                                 </div>
                             </label>
                             <label for="hs-vertical-radio-in-form-live"
                                 wire:click="selectAccountType('Live account', 'live')"
-                                class="px-4 py-2 w-full {{ $this->accountTypeSlug === 'live' ? 'border-3 border-[#1E90FF]' : 'border border-[#323335]' }} bg-transparent rounded-lg text-base focus:border-[#1a1b20] focus:ring-[#1a1b20]">
+                                class="px-4 py-2 w-full {{ $this->accountTypeSlug === 'live' ? 'border-3 border-[#40FFDD]' : 'border border-[#323335]' }} bg-transparent rounded-lg text-base focus:border-[#1a1b20] focus:ring-[#1a1b20]">
                                 <div class="flex-1 text-center text-white">
                                     <h2 class="text-white uppercase font-semibold text-sm">Live</h2>
                                 </div>
@@ -334,7 +334,7 @@
                 <div class="sticky bottom-2">
                     <a x-on:click="$store.robotPage.toggleTradeDetailsConfirmationModal($wire);">
                         <button type="button" wire:loading.attr="disabled"
-                            class="py-2.5 cursor-pointer px-4 w-full md:px-6 text-center gap-x-2 text-sm font-semibold rounded-lg bg-accent text-white focus:outline-hidden disabled:opacity-50 disabled:pointer-events-none">
+                            class="py-2.5 cursor-pointer px-4 w-full md:px-6 text-center gap-x-2 text-sm font-semibold rounded-lg bg-accent text-black focus:outline-hidden disabled:opacity-50 disabled:pointer-events-none">
                             <i wire:loading class="fa-solid fa-circle-notch fa-spin"></i>
                             <span wire:loading.remove>Start Robot</span>
                         </button>
@@ -372,7 +372,7 @@
                                         <button type="button"
                                             x-on:click="$store.robotPage.toggleTradeDetailsConfirmationModal($wire); $store.robotPage.toggleStartRobotConfirmationModal($wire);"
                                             type="button"
-                                            class="p-3 w-full text-center text-sm font-semibold rounded-lg border border-transparent bg-accent text-white cursor-pointer hover:bg-accent focus:outline-hidden focus:bg-accent disabled:opacity-50 disabled:pointer-events-none">
+                                            class="p-3 w-full text-center text-sm font-semibold rounded-lg border border-transparent bg-accent text-black cursor-pointer hover:bg-accent focus:outline-hidden focus:bg-accent disabled:opacity-50 disabled:pointer-events-none">
                                             Start
                                         </button>
                                     </div>
@@ -419,7 +419,7 @@
                                     <div>
                                         <a href="https://apps.apple.com/app/ceramicscoat-pro/id6751297821">
                                             <button id="safariInstallBtn" type="button" type="button"
-                                                class="p-3 w-full text-center text-sm font-semibold rounded-lg border border-transparent bg-accent text-white cursor-pointer hover:bg-accent focus:outline-hidden focus:bg-accent disabled:opacity-50 disabled:pointer-events-none">
+                                                class="p-3 w-full text-center text-sm font-semibold rounded-lg border border-transparent bg-accent text-black cursor-pointer hover:bg-accent focus:outline-hidden focus:bg-accent disabled:opacity-50 disabled:pointer-events-none">
                                                 Install Now
                                             </button>
                                         </a>
@@ -465,7 +465,7 @@
                                     <div>
                                         <a href="/appyfxai.apk">
                                             <button id="chromeInstallBtn" type="button" type="button"
-                                                class="p-3 w-full text-center text-sm font-semibold rounded-lg border border-transparent bg-accent text-white cursor-pointer hover:bg-accent focus:outline-hidden focus:bg-accent disabled:opacity-50 disabled:pointer-events-none">
+                                                class="p-3 w-full text-center text-sm font-semibold rounded-lg border border-transparent bg-accent text-black cursor-pointer hover:bg-accent focus:outline-hidden focus:bg-accent disabled:opacity-50 disabled:pointer-events-none">
                                                 Download Now
                                             </button>
                                         </a>

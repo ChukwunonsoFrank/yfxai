@@ -20,7 +20,7 @@
                             <span class="flex-1">Email: {{ auth()->user()->email }}</span>
                             <a href="{{ route('dashboard.security.changeemail') }}">
                                 <button type="button"
-                                    class="px-2 py-1 cursor-pointer inline-flex items-center justify-center gap-x-1 text-xs font-semibold rounded-lg bg-accent text-white focus:outline-hidden">
+                                    class="px-2 py-1 cursor-pointer inline-flex items-center justify-center gap-x-1 text-xs font-semibold rounded-lg bg-accent text-black focus:outline-hidden">
                                     Change Email
                                 </button>
                             </a>

@@ -40,7 +40,7 @@
                             </div>
                             <div class="w-full">
                                 <flux:button wire:click="verify2fa()" variant="primary"
-                                    class="w-full! h-12! rounded-md! p-2! bg-accent!">
+                                    class="w-full! h-12! rounded-md! p-2! bg-accent! text-black!">
                                     {{ __('Log In') }}</flux:button>
                             </div>
                         </div>

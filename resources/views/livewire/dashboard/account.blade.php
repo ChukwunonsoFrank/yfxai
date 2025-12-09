@@ -15,15 +15,15 @@
                                             <g clip-path="url(#clip0_49_26)">
                                                 <path
                                                     d="M6 24C6 26.3638 6.46558 28.7044 7.37017 30.8883C8.27475 33.0722 9.60062 35.0565 11.2721 36.7279C12.9435 38.3994 14.9278 39.7252 17.1117 40.6298C19.2956 41.5344 21.6362 42 24 42C26.3638 42 28.7044 41.5344 30.8883 40.6298C33.0722 39.7252 35.0565 38.3994 36.7279 36.7279C38.3994 35.0565 39.7252 33.0722 40.6298 30.8883C41.5344 28.7044 42 26.3638 42 24C42 21.6362 41.5344 19.2956 40.6298 17.1117C39.7252 14.9278 38.3994 12.9435 36.7279 11.2721C35.0565 9.60062 33.0722 8.27475 30.8883 7.37017C28.7044 6.46558 26.3638 6 24 6C21.6362 6 19.2956 6.46558 17.1117 7.37017C14.9278 8.27475 12.9435 9.60062 11.2721 11.2721C9.60062 12.9435 8.27475 14.9278 7.37017 17.1117C6.46558 19.2956 6 21.6362 6 24Z"
-                                                    stroke="white" stroke-width="2" stroke-linecap="round"
+                                                    stroke="black" stroke-width="2" stroke-linecap="round"
                                                     stroke-linejoin="round" />
                                                 <path
                                                     d="M18 20C18 21.5913 18.6321 23.1174 19.7574 24.2426C20.8826 25.3679 22.4087 26 24 26C25.5913 26 27.1174 25.3679 28.2426 24.2426C29.3679 23.1174 30 21.5913 30 20C30 18.4087 29.3679 16.8826 28.2426 15.7574C27.1174 14.6321 25.5913 14 24 14C22.4087 14 20.8826 14.6321 19.7574 15.7574C18.6321 16.8826 18 18.4087 18 20Z"
-                                                    fill="white" stroke="white" stroke-width="2"
+                                                    fill="white" stroke="black" stroke-width="2"
                                                     stroke-linecap="round" stroke-linejoin="round" />
                                                 <path
                                                     d="M12.3359 37.698C12.831 36.0505 13.8439 34.6064 15.2244 33.58C16.605 32.5535 18.2796 31.9995 19.9999 32H27.9999C29.7225 31.9994 31.3992 32.5548 32.7807 33.5836C34.1623 34.6123 35.1749 36.0596 35.6679 37.71"
-                                                    stroke="white" stroke-width="2" stroke-linecap="round"
+                                                    stroke="black" stroke-width="2" stroke-linecap="round"
                                                     stroke-linejoin="round" />
                                             </g>
                                             <defs>
@@ -156,16 +156,16 @@
                         <div class="flex-1">
                             <a href="{{ route('dashboard.withdraw') }}">
                                 <button type="button"
-                                    class="w-full py-2 px-6 lg:px-10 cursor-pointer inline-flex items-center justify-center gap-x-1 text-sm font-semibold rounded-lg bg-accent text-white focus:outline-hidden">
+                                    class="w-full py-2 px-6 lg:px-10 cursor-pointer inline-flex items-center justify-center gap-x-1 text-sm font-semibold rounded-lg bg-accent text-black focus:outline-hidden">
                                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M8 2V10" stroke="white" stroke-width="2" stroke-linecap="round"
+                                        <path d="M8 2V10" stroke="black" stroke-width="2" stroke-linecap="round"
                                             stroke-linejoin="round" />
-                                        <path d="M11.3332 5.33333L7.99984 2L4.6665 5.33333" stroke="white"
+                                        <path d="M11.3332 5.33333L7.99984 2L4.6665 5.33333" stroke="black"
                                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                         <path
                                             d="M14 10V12.6667C14 13.0203 13.8595 13.3594 13.6095 13.6095C13.3594 13.8595 13.0203 14 12.6667 14H3.33333C2.97971 14 2.64057 13.8595 2.39052 13.6095C2.14048 13.3594 2 13.0203 2 12.6667V10"
-                                            stroke="white" stroke-width="2" stroke-linecap="round"
+                                            stroke="black" stroke-width="2" stroke-linecap="round"
                                             stroke-linejoin="round" />
                                     </svg>
                                     Withdraw
@@ -175,13 +175,13 @@
                         <div class="flex-1">
                             <a href="{{ route('dashboard.deposit') }}">
                                 <button type="button"
-                                    class="w-full py-2 px-6 lg:px-10 cursor-pointer inline-flex items-center justify-center gap-x-1 text-sm font-semibold rounded-lg bg-accent text-white focus:outline-hidden">
+                                    class="w-full py-2 px-6 lg:px-10 cursor-pointer inline-flex items-center justify-center gap-x-1 text-sm font-semibold rounded-lg bg-accent text-black focus:outline-hidden">
                                     <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <g clip-path="url(#clip0_1669_24)">
                                             <path
                                                 d="M16.5 7.5V12C16.5 12.7956 16.1839 13.5587 15.6213 14.1213C15.0587 14.6839 14.2956 15 13.5 15H4.5C3.70435 15 2.94129 14.6839 2.37868 14.1213C1.81607 13.5587 1.5 12.7956 1.5 12V7.5H16.5ZM5.2575 10.5H5.25C5.15151 10.5005 5.05408 10.5204 4.96327 10.5585C4.87247 10.5967 4.79006 10.6523 4.72077 10.7223C4.58082 10.8637 4.50276 11.0548 4.50375 11.2538C4.50424 11.3522 4.52413 11.4497 4.56228 11.5405C4.60042 11.6313 4.65608 11.7137 4.72607 11.783C4.79606 11.8523 4.87902 11.9071 4.9702 11.9443C5.06138 11.9816 5.15901 12.0005 5.2575 12C5.45641 12 5.64718 11.921 5.78783 11.7803C5.92848 11.6397 6.0075 11.4489 6.0075 11.25C6.0075 11.0511 5.92848 10.8603 5.78783 10.7197C5.64718 10.579 5.45641 10.5 5.2575 10.5ZM9.75 10.5H8.25C8.05109 10.5 7.86032 10.579 7.71967 10.7197C7.57902 10.8603 7.5 11.0511 7.5 11.25C7.5 11.4489 7.57902 11.6397 7.71967 11.7803C7.86032 11.921 8.05109 12 8.25 12H9.75C9.94891 12 10.1397 11.921 10.2803 11.7803C10.421 11.6397 10.5 11.4489 10.5 11.25C10.5 11.0511 10.421 10.8603 10.2803 10.7197C10.1397 10.579 9.94891 10.5 9.75 10.5ZM13.5 3C14.2956 3 15.0587 3.31607 15.6213 3.87868C16.1839 4.44129 16.5 5.20435 16.5 6H1.5C1.5 5.20435 1.81607 4.44129 2.37868 3.87868C2.94129 3.31607 3.70435 3 4.5 3H13.5Z"
-                                                fill="white" />
+                                                fill="black" />
                                         </g>
                                         <defs>
                                             <clipPath id="clip0_1669_24">
@@ -216,7 +216,7 @@
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path
                                             d="M13.3333 8.66664C13.3333 12 11 13.6666 8.22663 14.6333C8.0814 14.6825 7.92365 14.6802 7.77996 14.6266C4.99996 13.6666 2.66663 12 2.66663 8.66664V3.99997C2.66663 3.82316 2.73686 3.65359 2.86189 3.52857C2.98691 3.40355 3.15648 3.33331 3.33329 3.33331C4.66663 3.33331 6.33329 2.53331 7.49329 1.51997C7.63453 1.39931 7.8142 1.33301 7.99996 1.33301C8.18572 1.33301 8.36539 1.39931 8.50663 1.51997C9.67329 2.53997 11.3333 3.33331 12.6666 3.33331C12.8434 3.33331 13.013 3.40355 13.138 3.52857C13.2631 3.65359 13.3333 3.82316 13.3333 3.99997V8.66664Z"
-                                            fill="white" stroke="white" stroke-width="1.33333" stroke-linecap="round"
+                                            fill="white" stroke="black" stroke-width="1.33333" stroke-linecap="round"
                                             stroke-linejoin="round" />
                                         <path d="M6 8.00008L7.33333 9.33341L10 6.66675" stroke="#FF6900"
                                             stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round" />
@@ -533,15 +533,15 @@
                                             <g clip-path="url(#clip0_49_26)">
                                                 <path
                                                     d="M6 24C6 26.3638 6.46558 28.7044 7.37017 30.8883C8.27475 33.0722 9.60062 35.0565 11.2721 36.7279C12.9435 38.3994 14.9278 39.7252 17.1117 40.6298C19.2956 41.5344 21.6362 42 24 42C26.3638 42 28.7044 41.5344 30.8883 40.6298C33.0722 39.7252 35.0565 38.3994 36.7279 36.7279C38.3994 35.0565 39.7252 33.0722 40.6298 30.8883C41.5344 28.7044 42 26.3638 42 24C42 21.6362 41.5344 19.2956 40.6298 17.1117C39.7252 14.9278 38.3994 12.9435 36.7279 11.2721C35.0565 9.60062 33.0722 8.27475 30.8883 7.37017C28.7044 6.46558 26.3638 6 24 6C21.6362 6 19.2956 6.46558 17.1117 7.37017C14.9278 8.27475 12.9435 9.60062 11.2721 11.2721C9.60062 12.9435 8.27475 14.9278 7.37017 17.1117C6.46558 19.2956 6 21.6362 6 24Z"
-                                                    stroke="white" stroke-width="2" stroke-linecap="round"
+                                                    stroke="black" stroke-width="2" stroke-linecap="round"
                                                     stroke-linejoin="round" />
                                                 <path
                                                     d="M18 20C18 21.5913 18.6321 23.1174 19.7574 24.2426C20.8826 25.3679 22.4087 26 24 26C25.5913 26 27.1174 25.3679 28.2426 24.2426C29.3679 23.1174 30 21.5913 30 20C30 18.4087 29.3679 16.8826 28.2426 15.7574C27.1174 14.6321 25.5913 14 24 14C22.4087 14 20.8826 14.6321 19.7574 15.7574C18.6321 16.8826 18 18.4087 18 20Z"
-                                                    fill="white" stroke="white" stroke-width="2"
+                                                    fill="white" stroke="black" stroke-width="2"
                                                     stroke-linecap="round" stroke-linejoin="round" />
                                                 <path
                                                     d="M12.3359 37.698C12.831 36.0505 13.8439 34.6064 15.2244 33.58C16.605 32.5535 18.2796 31.9995 19.9999 32H27.9999C29.7225 31.9994 31.3992 32.5548 32.7807 33.5836C34.1623 34.6123 35.1749 36.0596 35.6679 37.71"
-                                                    stroke="white" stroke-width="2" stroke-linecap="round"
+                                                    stroke="black" stroke-width="2" stroke-linecap="round"
                                                     stroke-linejoin="round" />
                                             </g>
                                             <defs>
@@ -566,17 +566,17 @@
                                 <div class="flex flex-col gap-y-1">
                                     <div>
                                         <label for="file-upload"
-                                            class="inline-flex items-center gap-x-1 bg-[#3b71ff] text-white text-xs p-2 rounded-lg cursor-pointer">
+                                            class="inline-flex items-center gap-x-1 bg-[#40FFDD] text-black text-xs p-2 rounded-lg cursor-pointer">
                                             <div class="-mt-0.5">
                                                 <svg width="14" height="14" viewBox="0 0 14 14"
                                                     fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path
                                                         d="M8.16494 2.33337C8.3754 2.33337 8.58194 2.3903 8.76269 2.49813C8.94343 2.60596 9.09163 2.76067 9.1916 2.94587L9.4751 3.47087C9.57507 3.65608 9.72328 3.81079 9.90402 3.91862C10.0848 4.02645 10.2913 4.08338 10.5018 4.08337H11.6667C11.9761 4.08337 12.2729 4.20629 12.4916 4.42508C12.7104 4.64388 12.8334 4.94062 12.8334 5.25004V10.5C12.8334 10.8095 12.7104 11.1062 12.4916 11.325C12.2729 11.5438 11.9761 11.6667 11.6667 11.6667H2.33335C2.02393 11.6667 1.72719 11.5438 1.5084 11.325C1.2896 11.1062 1.16669 10.8095 1.16669 10.5V5.25004C1.16669 4.94062 1.2896 4.64388 1.5084 4.42508C1.72719 4.20629 2.02393 4.08337 2.33335 4.08337H3.49827C3.70852 4.08339 3.91486 4.02658 4.09548 3.91897C4.27609 3.81136 4.42428 3.65694 4.52435 3.47204L4.8096 2.94471C4.90968 2.75981 5.05786 2.60539 5.23848 2.49778C5.4191 2.39017 5.62544 2.33336 5.83569 2.33337H8.16494Z"
-                                                        stroke="white" stroke-width="1.33333" stroke-linecap="round"
+                                                        stroke="black" stroke-width="1.33333" stroke-linecap="round"
                                                         stroke-linejoin="round" />
                                                     <path
                                                         d="M7 9.33337C7.9665 9.33337 8.75 8.54987 8.75 7.58337C8.75 6.61688 7.9665 5.83337 7 5.83337C6.0335 5.83337 5.25 6.61688 5.25 7.58337C5.25 8.54987 6.0335 9.33337 7 9.33337Z"
-                                                        stroke="white" stroke-width="1.33333" stroke-linecap="round"
+                                                        stroke="black" stroke-width="1.33333" stroke-linecap="round"
                                                         stroke-linejoin="round" />
                                                 </svg>
                                             </div>
@@ -602,7 +602,7 @@
                                     <a wire:click="saveProfilePicture()"
                                         x-on:click="$store.accountPage.toggleProfilePictureModal();">
                                         <button type="button" type="button"
-                                            class="py-2 px-6 w-full text-center text-sm font-semibold rounded-lg border border-transparent bg-accent text-white cursor-pointer hover:bg-accent focus:outline-hidden focus:bg-accent disabled:opacity-50 disabled:pointer-events-none">
+                                            class="py-2 px-6 w-full text-center text-sm font-semibold rounded-lg border border-transparent bg-accent text-black cursor-pointer hover:bg-accent focus:outline-hidden focus:bg-accent disabled:opacity-50 disabled:pointer-events-none">
                                             <i wire:loading class="fa-solid fa-circle-notch fa-spin"></i>
                                             <span wire:loading.remove>Save</span>
                                         </button>
