@@ -47,9 +47,9 @@ class ConfirmWithdraw extends Component
     $this->redirect("/dashboard/withdraw");
   }
 
-  public function calculateFees(int $amount): int
+  public function calculateFees(float|int $amount): float
   {
-    $fee = intval(round($amount * ($this->feePercentage / 100)));
+    $fee = round(($amount * $this->feePercentage) / 100, 2);
     return $fee;
   }
 

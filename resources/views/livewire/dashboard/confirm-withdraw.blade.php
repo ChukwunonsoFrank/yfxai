@@ -42,7 +42,8 @@
                         <p class="text-sm font-semibold text-white mb-2">Fee</p>
                         <div class="flex items-center gap-x-16">
                             <div class="flex-1 text-wrap">
-                                <p class="text-white font-light break-words">{{ $this->formatFee() }}</p>
+                                <p class="text-white font-light break-words">
+                                    {{ $this->feePercentage }}% ({{ $this->formatFee() }})</p>
                             </div>
                         </div>
                     </div>

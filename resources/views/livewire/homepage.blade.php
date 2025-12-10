@@ -136,7 +136,7 @@
                                                         src="wp-content/uploads/2025/03/plaform.svg">
                                                 </div>
                                                 <h2 class="main-block_child"><span
-                                                        class="purple-gradient">AI-Powered</span> Scalping Technology
+                                                        style="color: #40FFDD;">AI-Powered</span> Scalping Technology
                                                 </h2>
                                                 <p class="main-block_child">Yfxai uses a cutting-edge AI scalping
                                                     strategy that opens and closes trades in seconds.</p>
@@ -281,7 +281,10 @@
                                                 <h2 class="main-block_child">Fully Licensed & Secured
                                                 </h2>
                                                 <p class="main-block_child">Yfxai is a fully registered and licensed
-                                                    company based in France at 62 Av. Jean Jaurès, 92120 Châtillon. The
+                                                    company based in Luxembourg at 127 Boulevard De La Pétrusse, L-2320,
+                                                    Luxembourg with the registration number <a
+                                                        href="https://luxembourgregistrar.org/company-details?cid=2"
+                                                        style="text-decoration: underline;">L482937615</a>. The
                                                     platform is encrypted with top-grade security standards, ensuring
                                                     your funds and data remain protected at all times.</p>
                                                 <!-- Refactored Button Rendering -->
@@ -734,7 +737,7 @@
                                                         aria-labelledby="elementor-tab-title-3553">
                                                         <p>
                                                             Yfxai does not charge any hidden fees. However, there’s a
-                                                            small $1 withdrawal fee applied to every withdrawals to
+                                                            small 2% withdrawal fee applied to every withdrawals to
                                                             cover network and processing costs.
                                                         </p>
                                                     </div>
