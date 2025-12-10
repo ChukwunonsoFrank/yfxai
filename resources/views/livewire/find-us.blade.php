@@ -42,12 +42,14 @@
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-text-icon lucide-file-text"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"/><path d="M14 2v5a1 1 0 0 0 1 1h5"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>
             </div>
             <div>
-              <p class="text-white text-sm" style="margin-bottom: 4px;">Registration Number: <a href="#" style="text-decoration: underline;">L482937615</a></p>
+              <p class="text-white text-sm" style="margin-bottom: 4px;">Registration Number: <a href="" style="text-decoration: underline;">L482937615</a></p>
               <div class="flex items-center gap-x-1">
                 <div>
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search-icon lucide-search"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
                 </div>
-                <p class="text-xs text-accent" style="text-decoration: underline;">Verify Now</p>
+                <a href="https://luxembourgregistrar.org/company-details?cid=2" style="text-decoration: underline;">
+                  <p class="text-xs text-accent" style="text-decoration: underline;">Verify Now</p>
+                </a>
               </div>
             </div>
         </div>

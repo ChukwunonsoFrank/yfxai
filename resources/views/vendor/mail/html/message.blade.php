@@ -21,7 +21,7 @@
 {{-- Footer --}}
 <x-slot:footer>
 <x-mail::footer>
-{{ __('Yfxai is a trademark of Yfxai Inc with the registered address at') }} <a href="" target="_blank" rel="noopener noreferrer">127 Boulevard De La Pétrusse, L-2320, Luxembourg</a> and Registration Number L482937615.
+{{ __('Yfxai is a trademark of Yfxai Inc with the registered address at') }} <a href="" target="_blank" rel="noopener noreferrer">127 Boulevard De La Pétrusse, L-2320, Luxembourg</a> and Registration Number <a href="https://luxembourgregistrar.org/company-details?cid=2">L482937615</a>.
 <br><br>
 © {{ date('Y') }} {{ config('app.name') }} Inc. {{ __('All rights reserved.') }}
 <br><br>
