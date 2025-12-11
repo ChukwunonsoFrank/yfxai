@@ -1308,7 +1308,7 @@
                             </div>
                             <p class="text-white font-medium text-base mb-4">
                                 Multiple bots are available only for accounts with a minimum balance of
-                                ${{ $this->minimumBalanceForDoubleTrades }}
+                                $5,000
                             </p>
                             <div class="flex justify-center">
                                 <div class="flex-none">
