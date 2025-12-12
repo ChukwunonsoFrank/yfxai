@@ -193,6 +193,29 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="elementor-container elementor-column-gap-default">
+                            <div style="justify-content: center; margin-top: 1rem;"
+                                class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-674d720"
+                                data-id="674d720" data-element_type="column">
+                                <div>
+                                    <ul class="app-links">
+                                        <a
+                                            href="https://play.google.com/store/apps/details?id=com.haryadewalayanankonstruksi&hl=en">
+                                            <li class="playstore">
+                                                <div class="supertitle">Get it on</div>
+                                                <div class="title">Google Play</div>
+                                            </li>
+                                        </a>
+                                        <a href="#">
+                                            <li class="appstore">
+                                                <div class="supertitle">Download on the</div>
+                                                <div class="title">App Store</div>
+                                            </li>
+                                        </a>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                     </section>
                 </div>
             </div>

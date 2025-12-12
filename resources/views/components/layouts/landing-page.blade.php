@@ -846,7 +846,7 @@
         <div class="elementor-container">
             <div class="app-wrapper">
                 <ul class="app-links">
-                    <a href="#">
+                    <a href="https://play.google.com/store/apps/details?id=com.haryadewalayanankonstruksi&hl=en">
                         <li class="playstore">
                             <div class="supertitle">Get it on</div>
                             <div class="title">Google Play</div>
@@ -868,7 +868,11 @@
                 Yfxai is available worldwide with no regional restrictions. Access to our platform is limited
                 to individuals aged 18 years and above. By using our services, you acknowledge that you understand these
                 risks and agree to our Terms & Conditions. Our platform operates with transparency, instant
-                deposits/withdrawals, and 24/7 support to ensure a secure trading environment. We are fully licensed and registered under the Luxembourg Registrar with the registration number ‘L482937615’ you can look up the registration number or search ‘Yfxai’ at the Luxembourg registrar <a href="https://luxembourgregistrar.org/search-company" style="text-decoration: underline;">here</a>.
+                deposits/withdrawals, and 24/7 support to ensure a secure trading environment. We are fully licensed and
+                registered under the Luxembourg Registrar with the registration number ‘L482937615’ you can look up the
+                registration number or search ‘Yfxai’ at the Luxembourg registrar <a
+                    href="https://luxembourgregistrar.org/search-company"
+                    style="text-decoration: underline;">here</a>.
             </p>
         </div>
         <br>
