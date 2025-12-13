@@ -904,9 +904,11 @@ class Robot extends Component
             ->getTimestampMs(),
         ),
       ]);
-      User::where("id", "=", auth()->user()->id, "and")->update([
-        $balanceToDebit => $newBalance,
-      ]);
+      User::where("id", "=", auth()->user()->id)
+        ->lockForUpdate()
+        ->update([
+          $balanceToDebit => $newBalance,
+        ]);
     });
   }
 

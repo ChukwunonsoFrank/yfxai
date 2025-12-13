@@ -852,7 +852,7 @@
                             <div class="title">Google Play</div>
                         </li>
                     </a>
-                    <a href="#">
+                    <a href="https://apps.apple.com/ng/app/yfxai/id6755783410">
                         <li class="appstore">
                             <div class="supertitle">Download on the</div>
                             <div class="title">App Store</div>

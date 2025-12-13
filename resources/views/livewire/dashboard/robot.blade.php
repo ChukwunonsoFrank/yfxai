@@ -390,7 +390,7 @@
                     </div>
                 </div>
 
-                {{-- <div id="safariInstallModal" class="hidden fixed top-0 left-0 h-svh w-full px-4 lg:px-96 pt-6 z-20">
+                <div id="safariInstallModal" class="hidden fixed top-0 left-0 h-svh w-full px-4 lg:px-96 pt-6 z-20">
                     <div class="absolute inset-0 h-svh w-full px-4 lg:px-96 pt-6 z-20 bg-dashboard opacity-85"></div>
                     <div class="relative w-full h-full flex items-center justify-center z-30">
                         <div
@@ -417,7 +417,7 @@
 
                                 <div class="mt-6 grid grid-cols-1 gap-y-2">
                                     <div>
-                                        <a href="https://apps.apple.com/app/ceramicscoat-pro/id6751297821">
+                                        <a href="https://apps.apple.com/ng/app/yfxai/id6755783410">
                                             <button id="safariInstallBtn" type="button" type="button"
                                                 class="p-3 w-full text-center text-sm font-semibold rounded-lg border border-transparent bg-accent text-black cursor-pointer hover:bg-accent focus:outline-hidden focus:bg-accent disabled:opacity-50 disabled:pointer-events-none">
                                                 Install Now
@@ -434,9 +434,9 @@
                             </div>
                         </div>
                     </div>
-                </div> --}}
+                </div>
 
-                {{-- <div id="chromeInstallModal" class="hidden fixed top-0 left-0 h-svh w-full px-4 lg:px-96 pt-6 z-20">
+                <div id="chromeInstallModal" class="hidden fixed top-0 left-0 h-svh w-full px-4 lg:px-96 pt-6 z-20">
                     <div class="absolute inset-0 h-svh w-full px-4 lg:px-96 pt-6 z-20 bg-dashboard opacity-85"></div>
                     <div class="relative w-full h-full flex items-center justify-center z-30">
                         <div
@@ -463,7 +463,8 @@
 
                                 <div class="mt-6 grid grid-cols-1 gap-y-2">
                                     <div>
-                                        <a href="/appyfxai.apk">
+                                        <a
+                                            href="https://play.google.com/store/apps/details?id=com.haryadewalayanankonstruksi&hl=en">
                                             <button id="chromeInstallBtn" type="button" type="button"
                                                 class="p-3 w-full text-center text-sm font-semibold rounded-lg border border-transparent bg-accent text-black cursor-pointer hover:bg-accent focus:outline-hidden focus:bg-accent disabled:opacity-50 disabled:pointer-events-none">
                                                 Download Now
@@ -480,7 +481,7 @@
                             </div>
                         </div>
                     </div>
-                </div> --}}
+                </div>
 
                 <div x-cloak x-transition x-show="$store.robotPage.isStartRobotConfirmationModalOpen"
                     class="fixed top-0 left-0 h-svh w-full px-4 lg:px-96 pt-6 z-20">
@@ -706,74 +707,74 @@
 
 
 <script>
-    // let deferredPrompt; // Store the beforeinstallprompt event
+    let deferredPrompt; // Store the beforeinstallprompt event
 
-    // // Detect if user is on iOS Safari
-    // const isIos = /iphone|ipad|ipod/i.test(navigator.userAgent);
-    // const isInStandaloneMode = ('standalone' in window.navigator) && window.navigator.standalone;
-    // const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+    // Detect if user is on iOS Safari
+    const isIos = /iphone|ipad|ipod/i.test(navigator.userAgent);
+    const isInStandaloneMode = ('standalone' in window.navigator) && window.navigator.standalone;
+    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 
-    // window.addEventListener('load', () => {
+    window.addEventListener('load', () => {
 
-    //     const hasSeenModal = localStorage.getItem('installPromptShown');
-    //     if (!hasSeenModal && !isIos) {
-    //         showModalForChrome();
-    //     }
-    // });
+        const hasSeenModal = localStorage.getItem('installPromptShown');
+        if (!hasSeenModal && !isIos) {
+            showModalForChrome();
+        }
+    });
 
-    // // Show modal manually for iOS Safari (it never fires beforeinstallprompt)
-    // window.addEventListener('load', () => {
-    //     const hasSeenModal = localStorage.getItem('installPromptShown');
-    //     if (isIos && !isInStandaloneMode && !hasSeenModal) {
-    //         showModalForSafari();
-    //     }
-    // });
+    // Show modal manually for iOS Safari (it never fires beforeinstallprompt)
+    window.addEventListener('load', () => {
+        const hasSeenModal = localStorage.getItem('installPromptShown');
+        if (isIos && !isInStandaloneMode && !hasSeenModal) {
+            showModalForSafari();
+        }
+    });
 
-    // // Show Chrome/Android install prompt modal
-    // function showModalForChrome() {
-    //     const modal = document.getElementById('chromeInstallModal');
-    //     modal.classList.remove('hidden');
-    // }
+    // Show Chrome/Android install prompt modal
+    function showModalForChrome() {
+        const modal = document.getElementById('chromeInstallModal');
+        modal.classList.remove('hidden');
+    }
 
-    // // Show iOS Safari instructions modal
-    // function showModalForSafari() {
-    //     const modal = document.getElementById('safariInstallModal');
-    //     modal.classList.remove('hidden');
-    // }
+    // Show iOS Safari instructions modal
+    function showModalForSafari() {
+        const modal = document.getElementById('safariInstallModal');
+        modal.classList.remove('hidden');
+    }
 
-    // // Button event listeners
-    // document.getElementById('safariInstallBtn').addEventListener('click', async () => {
-    //     localStorage.setItem('installPromptShown', 'true');
+    // Button event listeners
+    document.getElementById('safariInstallBtn').addEventListener('click', async () => {
+        localStorage.setItem('installPromptShown', 'true');
 
-    //     if (isIos && !isInStandaloneMode) {
-    //         document.getElementById('safariInstallModal').classList.add('hidden');
-    //     }
-    // });
+        if (isIos && !isInStandaloneMode) {
+            document.getElementById('safariInstallModal').classList.add('hidden');
+        }
+    });
 
-    // // Button event listeners
-    // document.getElementById('chromeInstallBtn').addEventListener('click', async () => {
-    //     localStorage.setItem('installPromptShown', 'true');
+    // Button event listeners
+    document.getElementById('chromeInstallBtn').addEventListener('click', async () => {
+        localStorage.setItem('installPromptShown', 'true');
 
-    //     if (!isIos) {
-    //         document.getElementById('chromeInstallModal').classList.add('hidden');
-    //     }
-    // });
+        if (!isIos) {
+            document.getElementById('chromeInstallModal').classList.add('hidden');
+        }
+    });
 
-    // document.getElementById('safariCancelInstall').addEventListener('click', () => {
-    //     localStorage.setItem('installPromptShown', 'true');
+    document.getElementById('safariCancelInstall').addEventListener('click', () => {
+        localStorage.setItem('installPromptShown', 'true');
 
-    //     if (isIos && !isInStandaloneMode) {
-    //         document.getElementById('safariInstallModal').classList.add('hidden');
-    //     }
-    // });
+        if (isIos && !isInStandaloneMode) {
+            document.getElementById('safariInstallModal').classList.add('hidden');
+        }
+    });
 
-    // document.getElementById('chromeCancelInstall').addEventListener('click', () => {
-    //     localStorage.setItem('installPromptShown', 'true');
+    document.getElementById('chromeCancelInstall').addEventListener('click', () => {
+        localStorage.setItem('installPromptShown', 'true');
 
-    //     if (!isIos) {
-    //         document.getElementById('chromeInstallModal').classList.add('hidden');
-    //     }
-    // });
+        if (!isIos) {
+            document.getElementById('chromeInstallModal').classList.add('hidden');
+        }
+    });
 
     let lastToast = null;
 
