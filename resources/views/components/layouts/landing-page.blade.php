@@ -731,8 +731,8 @@
                                 href="{{ route('register') }}" data-analytics-label="Start trading">Sign Up<span
                                     class="menu-item-description"></span></a> </li>
                         <li id='menu-item-5' class="menu-item menu-item-type-custom menu-item-object-custom"><a
-                                href="{{ route('login') }}" data-analytics-label="Start trading">Login<span
-                                    class="menu-item-description"></span></a> </li>
+                                href="{{ route('login') }}" data-analytics-label="Start trading"
+                                style="color: #000000;">Login<span class="menu-item-description"></span></a> </li>
                     </ul>
                 </div>
             </nav>
@@ -782,6 +782,59 @@
 
     <div data-elementor-type="wp-page" data-elementor-id="2264" class="elementor elementor-2264">
         {{ $slot }}
+    </div>
+
+    <div id="downloadModal"
+        style="display: none; position: fixed; top: 0; left: 0; height: 100svh; width: 100%; padding-left: 1rem; padding-right: 1rem; padding-top: 1.5rem; z-index: 20;">
+        <div
+            style="position: absolute; top: 0; right: 0; bottom: 0; left: 0; height: 100svh; width: 100%; padding-left: 1rem; padding-right: 1rem; padding-top: 1.5rem; z-index: 20; background-color: #000000; opacity: 0.85;">
+        </div>
+        <div
+            style="position: relative; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; z-index: 30;">
+            <div
+                style="max-width: 24rem; margin-left: auto; margin-right: auto; display: flex; flex-direction: column; background-color: #000000; border: 1px solid #26252a; border-radius: 1rem; pointer-events: auto;">
+                <div
+                    style="padding-top: 1.5rem; padding-bottom: 1.5rem; padding-left: 1rem; padding-right: 1rem; overflow-y: auto;">
+                    <div style="display: flex; justify-content: flex-end; align-items: center;">
+                        <div id="cancelDownloadModalBtn" style="flex: none;">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="16" cy="16" r="16" fill="#1A1B20" />
+                                <path d="M21 11L11 21" stroke="white" stroke-width="1.66667" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M11 11L21 21" stroke="white" stroke-width="1.66667" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div style="margin-bottom: 1rem;">
+                        <div style="text-align: center;">
+                            <h1 style="color: white; font-weight: medium; font-size: 1.5rem;">Download Now</h1>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 1.5rem; display: grid; grid-template-columns: 1fr; row-gap: 0.5rem;">
+                        <div>
+                            <ul class="app-links">
+                                <a id="googlePlayDownloadBtn"
+                                    href="https://play.google.com/store/apps/details?id=com.haryadewalayanankonstruksi&hl=en">
+                                    <li class="playstore">
+                                        <div class="supertitle">Get it on</div>
+                                        <div class="title">Google Play</div>
+                                    </li>
+                                </a>
+                                <a id="appStoreDownloadBtn" href="https://apps.apple.com/ng/app/yfxai/id6755783410">
+                                    <li class="appstore">
+                                        <div class="supertitle">Download on the</div>
+                                        <div class="title">App Store</div>
+                                    </li>
+                                </a>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <footer class="elementor-section elementor-section-boxed">
@@ -905,6 +958,62 @@
         function toggleNavbar() {
             document.getElementById('mobile__navbar').setAttribute('aria-hidden', true);
         }
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const cancelInstallCount = parseInt(localStorage.getItem('cancelInstallCount') || '0', 10);
+            const lastShownDate = localStorage.getItem('lastShownDate');
+            const today = new Date().toDateString();
+
+            if (cancelInstallCount < 3 && lastShownDate !== today) {
+                setTimeout(function() {
+                    const modal = document.getElementById('downloadModal');
+                    if (modal) {
+                        modal.style.display = 'block';
+                    }
+                }, 4000);
+            }
+
+            // Download buttons set count to 3
+            const googlePlayBtn = document.getElementById('googlePlayDownloadBtn');
+            const appStoreBtn = document.getElementById('appStoreDownloadBtn');
+
+            if (googlePlayBtn) {
+                googlePlayBtn.addEventListener('click', function() {
+                    localStorage.setItem('cancelInstallCount', '3');
+                    const modal = document.getElementById('downloadModal');
+                    if (modal) {
+                        modal.style.display = 'none';
+                    }
+                });
+            }
+
+            if (appStoreBtn) {
+                appStoreBtn.addEventListener('click', function() {
+                    localStorage.setItem('cancelInstallCount', '3');
+                    const modal = document.getElementById('downloadModal');
+                    if (modal) {
+                        modal.style.display = 'none';
+                    }
+                });
+            }
+
+            // Cancel button increments count and sets today's date
+            const cancelBtn = document.getElementById('cancelDownloadModalBtn');
+            if (cancelBtn) {
+                cancelBtn.addEventListener('click', function() {
+                    const current = parseInt(localStorage.getItem('cancelInstallCount') || '0', 10);
+                    localStorage.setItem('cancelInstallCount', current + 1);
+                    localStorage.setItem('lastShownDate', today);
+
+                    const modal = document.getElementById('downloadModal');
+                    if (modal) {
+                        modal.style.display = 'none';
+                    }
+                });
+            }
+        });
     </script>
 
     <link rel='stylesheet' id='e-animations-css'

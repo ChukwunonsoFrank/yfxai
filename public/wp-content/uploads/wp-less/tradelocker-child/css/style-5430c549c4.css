@@ -1256,13 +1256,13 @@ header {
   .site-header #menu-primary-menu>.menu-item:last-child {
     background: #40FFDD !important;
     border-radius: var(--button-radius);
-    padding: 5px 18px 5px 8px;
+    padding: 5px;
     margin-left: 10px;
     transition: 0.5s;
     position: relative;
   }
 
-  .site-header #menu-primary-menu>.menu-item:last-child a::after {
+  /* .site-header #menu-primary-menu>.menu-item:last-child a::after {
     content: '';
     width: 10px;
     height: 10px;
@@ -1290,7 +1290,7 @@ header {
     display: block;
     transition: 0.2s;
     opacity: 0;
-  }
+  } */
 
   .site-header #menu-primary-menu>.menu-item:last-child:hover {
     background: #40FFDD !important;
