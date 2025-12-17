@@ -138,30 +138,28 @@ class RefreshActiveBots implements ShouldQueue
               $user->name,
             );
           }
+
+          if (! $user->lockout_ends_in) {
+            $user->is_lockout_active = true;
+            $user->lockout_ends_in = strval(
+              now()
+                ->addHours(1)
+                ->getTimestampMs()
+            );
+            $user->save();
+          } else {
+            $user->is_lockout_active = true;
+            $user->lockout_two_ends_in = strval(
+              now()
+                ->addHours(1)
+                ->getTimestampMs()
+            );
+            $user->save();
+          }
         });
       }
 
-      $user = User::where("id", "=", $bot["user_id"], "and")
-        ->lockForUpdate()
-        ->first();
-
-      if (! $user->lockout_ends_in) {
-        $user->is_lockout_active = true;
-        $user->lockout_ends_in = strval(
-          now()
-            ->addHours(1)
-            ->getTimestampMs()
-        );
-        $user->save();
-      } else {
-        $user->is_lockout_active = true;
-        $user->lockout_two_ends_in = strval(
-          now()
-            ->addHours(1)
-            ->getTimestampMs()
-        );
-        $user->save();
-      }
+      $user = User::where("id", "=", $bot->user->id, "and")->first();
 
       // Send email to notify user when bot has expired
       $user->notify(
