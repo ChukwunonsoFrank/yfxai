@@ -809,7 +809,7 @@
                     </div>
                     <div style="margin-bottom: 1rem;">
                         <div style="text-align: center;">
-                            <h1 style="color: white; font-weight: medium; font-size: 1.5rem;">Download Yfxai App Now
+                            <h1 style="color: white; font-weight: medium; font-size: 1.5rem;">Download Yfxai App
                             </h1>
                         </div>
                     </div>

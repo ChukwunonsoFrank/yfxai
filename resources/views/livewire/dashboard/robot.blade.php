@@ -409,7 +409,7 @@
                                     </div>
                                 </div>
                                 <div class="text-center mb-4">
-                                    <h1 class="text-white font-bold text-xl">Download Yfxai App Now</h1>
+                                    <h1 class="text-white font-bold text-xl">Download Yfxai App</h1>
                                 </div>
 
                                 <div class="mt-6 flex items-center justify-center gap-x-2">
