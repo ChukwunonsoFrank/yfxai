@@ -143,7 +143,7 @@ class RefreshActiveBots implements ShouldQueue
             $user->is_lockout_active = true;
             $user->lockout_ends_in = strval(
               now()
-                ->addHours(1)
+                ->addMinutes(45)
                 ->getTimestampMs()
             );
             $user->save();
@@ -151,7 +151,7 @@ class RefreshActiveBots implements ShouldQueue
             $user->is_lockout_active = true;
             $user->lockout_two_ends_in = strval(
               now()
-                ->addHours(1)
+                ->addMinutes(45)
                 ->getTimestampMs()
             );
             $user->save();
