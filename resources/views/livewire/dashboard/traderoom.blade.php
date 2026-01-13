@@ -3,7 +3,7 @@
         <livewire:dashboard.partials.desktop-navbar />
         <div class="lg:h-full lg:flex-1 lg:px-96 lg:pt-6">
             <div class="lg:h-full lg:pb-24 lg:overflow-scroll scrollbar-hide pt-1.5">
-                @if ($this->activeBotCount < 2)
+                {{-- @if ($this->activeBotCount < 2)
                     <div class="flex items-center justify-end p-1">
                         <div class="flex-none">
                             <button x-on:click="startNewTrade($wire.lockoutOneTimer, $wire.lockoutTwoTimer)"
@@ -24,7 +24,7 @@
                             </button>
                         </div>
                     </div>
-                @endif
+                @endif --}}
                 <!-- Slider -->
                 <div data-hs-carousel='{"loadingClasses": "opacity-0", "dotsItemClasses": "hs-carousel-active:bg-accent hs-carousel-active:border-accent size-2 border border-gray-400 rounded-full cursor-pointer dark:border-neutral-600 dark:hs-carousel-active:bg-blue-500 dark:hs-carousel-active:border-blue-500"}'
                     class="relative border-0">

@@ -95,7 +95,7 @@ class Robot extends Component
       $this->redirectRoute("dashboard.robot.traderoom");
     }
 
-    if (count($activeBots) === 2) {
+    if (count($activeBots) === 1) {
       $this->redirectRoute("dashboard.robot.traderoom");
     }
 
