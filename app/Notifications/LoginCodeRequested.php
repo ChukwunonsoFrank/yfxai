@@ -13,6 +13,8 @@ class LoginCodeRequested extends Notification implements ShouldQueue
 
   public $tries = 5;
 
+  public $backoff = [10, 30, 60];
+
   /**
    * Create a new notification instance.
    */

@@ -9,60 +9,62 @@ use Illuminate\Notifications\Notification;
 
 class KYCDeclined extends Notification implements ShouldQueue
 {
-    use Queueable;
+  use Queueable;
 
-    public $tries = 5;
+  public $tries = 5;
 
-    /**
-     * Create a new notification instance.
-     */
-    public function __construct(public string $name)
-    {
-        //
-    }
+  public $backoff = [10, 30, 60];
 
-    /**
-     * Determine which queues should be used for each notification channel.
-     *
-     * @return array<string, string>
-     */
-    public function viaQueues(): array
-    {
-        return [
-            'mail' => 'notifications',
-        ];
-    }
+  /**
+   * Create a new notification instance.
+   */
+  public function __construct(public string $name)
+  {
+    //
+  }
 
-    /**
-     * Get the notification's delivery channels.
-     *
-     * @return array<int, string>
-     */
-    public function via(object $notifiable): array
-    {
-        return ['mail'];
-    }
+  /**
+   * Determine which queues should be used for each notification channel.
+   *
+   * @return array<string, string>
+   */
+  public function viaQueues(): array
+  {
+    return [
+      'mail' => 'notifications',
+    ];
+  }
 
-    /**
-     * Get the mail representation of the notification.
-     */
-    public function toMail(object $notifiable): MailMessage
-    {
-        return (new MailMessage)
-            ->subject('KYC Declined')
-            ->greeting("Hi " . $this->name . ',')
-            ->line("This email is to notify you that your KYC request has been declined. Please review the requirements carefully and apply again. If you think a mistake was made, reach out to us via in-app support chat.");
-    }
+  /**
+   * Get the notification's delivery channels.
+   *
+   * @return array<int, string>
+   */
+  public function via(object $notifiable): array
+  {
+    return ['mail'];
+  }
 
-    /**
-     * Get the array representation of the notification.
-     *
-     * @return array<string, mixed>
-     */
-    public function toArray(object $notifiable): array
-    {
-        return [
-            //
-        ];
-    }
+  /**
+   * Get the mail representation of the notification.
+   */
+  public function toMail(object $notifiable): MailMessage
+  {
+    return (new MailMessage)
+      ->subject('KYC Declined')
+      ->greeting("Hi " . $this->name . ',')
+      ->line("This email is to notify you that your KYC request has been declined. Please review the requirements carefully and apply again. If you think a mistake was made, reach out to us via in-app support chat.");
+  }
+
+  /**
+   * Get the array representation of the notification.
+   *
+   * @return array<string, mixed>
+   */
+  public function toArray(object $notifiable): array
+  {
+    return [
+      //
+    ];
+  }
 }
