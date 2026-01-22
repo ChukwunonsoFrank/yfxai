@@ -266,7 +266,7 @@
                                             <p class="text-xs text-[#a4a4a4] font-normal">
                                                 Estimated 24 hours returns range from
                                                 8% to
-                                                13%, depending on market
+                                                14%, depending on market
                                                 conditions.
                                             </p>
                                             {{-- <div class="flex items-center gap-x-1">

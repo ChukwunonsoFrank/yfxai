@@ -874,10 +874,10 @@ class Robot extends Component
         $profitExceedDay = $user->profit_exceed_day;
 
         if ($profitExceedDay !== null && $profitExceedDay !== 0 && $profitExceedDay === Carbon::now()->dayOfWeek) {
-          $exceedPercentages = [11, 12, 13];
+          $exceedPercentages = [11, 11.1, 11.2, 11.3, 11.4, 11.5, 11.6, 11.7, 11.8, 11.9, 12, 12.1, 12.2, 12.3, 12.4, 12.5, 12.6, 12.7, 12.8, 12.9, 13];
           $roiPercentage = $exceedPercentages[array_rand($exceedPercentages)];
         } elseif ($profitExceedDay === 0) {
-          $dailyPercentages = [8, 9, 10];
+          $dailyPercentages = [8, 8.1, 8.2, 8.3, 8.4, 8.5, 8.6, 8.7, 8.8, 8.9, 9, 9.1, 9.2, 9.3, 9.4, 9.5, 9.6, 9.7, 9.8, 9.9, 10];
           $roiPercentage = $dailyPercentages[array_rand($dailyPercentages)];
         }
       }
