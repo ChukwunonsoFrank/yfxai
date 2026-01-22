@@ -265,8 +265,8 @@
                                         <div class="mb-1">
                                             <p class="text-xs text-[#a4a4a4] font-normal">
                                                 Estimated 24 hours returns range from
-                                                {{ $this->strategy['min_roi'] }}% to
-                                                {{ $this->strategy['max_roi'] }}%, depending on market
+                                                8% to
+                                                13%, depending on market
                                                 conditions.
                                             </p>
                                             {{-- <div class="flex items-center gap-x-1">

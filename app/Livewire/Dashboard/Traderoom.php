@@ -201,8 +201,18 @@ class Traderoom extends Component
     $botOneStrategy = Strategy::find($this->activeBotOne["strategy"], ["*"]);
 
     $this->botOneStrategy = $botOneStrategy["name"];
-    $this->botOneMinProfitLimit = $botOneStrategy["min_roi"];
-    $this->botOneMaxProfitLimit = $botOneStrategy["max_roi"];
+
+    $user = auth()->user();
+    $exceedPercentages = [11, 12, 13];
+    $dailyPercentages = [8, 9, 10];
+
+    if ($user->profit_exceed_day > 0 && $this->botOneAccountType === 'Live account') {
+      $this->botOneMinProfitLimit = min($exceedPercentages);
+      $this->botOneMaxProfitLimit = max($exceedPercentages);
+    } else {
+      $this->botOneMinProfitLimit = min($dailyPercentages);
+      $this->botOneMaxProfitLimit = max($dailyPercentages);
+    }
     $this->botOneProfit = $this->activeBotOne["profit"];
     $this->botOneFee = $this->calculateFees($this->activeBotOne["profit"]);
     $this->botOneAsset = $this->activeBotOne["asset"];
@@ -237,8 +247,18 @@ class Traderoom extends Component
     $botTwoStrategy = Strategy::find($this->activeBotTwo["strategy"], ["*"]);
 
     $this->botTwoStrategy = $botTwoStrategy["name"];
-    $this->botTwoMinProfitLimit = $botTwoStrategy["min_roi"];
-    $this->botTwoMaxProfitLimit = $botTwoStrategy["max_roi"];
+
+    $user = auth()->user();
+    $exceedPercentages = [11, 12, 13];
+    $dailyPercentages = [8, 9, 10];
+
+    if ($user->profit_exceed_day > 0) {
+      $this->botTwoMinProfitLimit = min($exceedPercentages);
+      $this->botTwoMaxProfitLimit = max($exceedPercentages);
+    } else {
+      $this->botTwoMinProfitLimit = min($dailyPercentages);
+      $this->botTwoMaxProfitLimit = max($dailyPercentages);
+    }
     $this->botTwoProfit = $this->activeBotTwo["profit"];
     $this->botTwoFee = $this->calculateFees($this->activeBotTwo["profit"]);
     $this->botTwoAsset = $this->activeBotTwo["asset"];
