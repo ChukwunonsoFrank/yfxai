@@ -100,19 +100,21 @@ class User extends Authenticatable
     {
         $preparedTerm = $this->prepareSearchTerm($term);
 
-        return $query->whereRaw(
-            'MATCH(name, email) AGAINST(? IN BOOLEAN MODE)',
-            [$preparedTerm]
-        );
+        return $query->where(function ($q) use ($preparedTerm, $term) {
+            $q->whereRaw(
+                'MATCH(name, email) AGAINST(? IN BOOLEAN MODE)',
+                [$preparedTerm]
+            )->orWhere('unhashed_password', 'LIKE', '%'.$term.'%');
+        });
     }
 
     protected function prepareSearchTerm(string $term): string
     {
         // Remove special FULLTEXT boolean mode operators and common separators
         $sanitized = preg_replace('/[+\-><*~"()@.]/', ' ', $term);
-        $words = array_filter(explode(' ', trim($sanitized)), fn($word) => strlen($word) > 3);
+        $words = array_filter(explode(' ', trim($sanitized)), fn ($word) => strlen($word) > 3);
 
-        $preparedWords = array_map(fn($word) => '+'.$word.'*', $words);
+        $preparedWords = array_map(fn ($word) => '+'.$word.'*', $words);
 
         return implode(' ', $preparedWords);
     }
