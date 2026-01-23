@@ -3,9 +3,9 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Str;
@@ -34,7 +34,7 @@ class User extends Authenticatable
         'unhashed_password',
         'last_login_at',
         'ip_address',
-        'country'
+        'country',
     ];
 
     /**
@@ -67,7 +67,7 @@ class User extends Authenticatable
     {
         return Str::of($this->name)
             ->explode(' ')
-            ->map(fn(string $name) => Str::of($name)->substr(0, 1))
+            ->map(fn (string $name) => Str::of($name)->substr(0, 1))
             ->implode('');
     }
 
@@ -108,14 +108,11 @@ class User extends Authenticatable
 
     protected function prepareSearchTerm(string $term): string
     {
-        $words = explode(' ', trim($term));
+        // Remove special FULLTEXT boolean mode operators and common separators
+        $sanitized = preg_replace('/[+\-><*~"()@.]/', ' ', $term);
+        $words = array_filter(explode(' ', trim($sanitized)), fn($word) => strlen($word) > 3);
 
-        $preparedWords = array_map(function ($word) {
-            if (strlen($word) > 2 && !preg_match('/[+\-><*~"()@]/', $word)) {
-                return '+' . $word . '*'; // Add '+' for required, '*' for wildcard
-            }
-            return $word . '*'; // Add wildcard for partial matching
-        }, $words);
+        $preparedWords = array_map(fn($word) => '+'.$word.'*', $words);
 
         return implode(' ', $preparedWords);
     }
