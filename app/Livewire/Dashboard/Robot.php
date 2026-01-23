@@ -114,48 +114,38 @@ class Robot extends Component
 
   public function calculateProfitExpected()
   {
-    if ($this->amount === '') {
+    if ($this->amount === "") {
       $this->expectedProfitMin = 0;
       $this->expectedProfitMax = 0;
-
       return;
     }
 
-    if (floatval($this->amount) < floatval($this->strategy['min_amount'])) {
+    if (floatval($this->amount) < floatval($this->strategy["min_amount"])) {
       $this->expectedProfitMin = 0;
       $this->expectedProfitMax = 0;
-
       return;
     }
 
-    $user = auth()->user();
-    $exceedPercentages = [11, 12, 13];
-    $dailyPercentages = [8, 9, 10];
-
-    if ($this->accountTypeSlug === 'live' && $user->profit_exceed_day > 0) {
-      $minRoi = min($exceedPercentages);
-      $maxRoi = max($exceedPercentages);
-    } else {
-      $minRoi = min($dailyPercentages);
-      $maxRoi = max($dailyPercentages);
-    }
-
-    $expectedProfitMin = ($minRoi / 100) * floatval($this->amount);
-    $expectedProfitMax = ($maxRoi / 100) * floatval($this->amount);
-
+    $expectedProfitMin =
+      (floatval($this->strategy["min_roi"]) / 100) *
+      floatval($this->amount);
+    $expectedProfitMax =
+      floatval($this->strategy["max_roi"] / 100) *
+      floatval($this->amount);
     $this->expectedProfitMin = number_format(
       $expectedProfitMin,
       2,
-      '.',
-      ',',
+      ".",
+      ",",
     );
     $this->expectedProfitMax = number_format(
       $expectedProfitMax,
       2,
-      '.',
-      ',',
+      ".",
+      ",",
     );
   }
+
 
   public function calculateTotalBalance()
   {
