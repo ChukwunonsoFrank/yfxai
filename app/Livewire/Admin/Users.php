@@ -21,7 +21,7 @@ class Users extends Component
 {
   use WithPagination;
 
-  #[Url]
+  #[Url(as: 'search', keep: true)]
   public string $query = '';
 
   public function getStatusIndicatorColor(string $status)
