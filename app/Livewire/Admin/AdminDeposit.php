@@ -12,10 +12,13 @@ use App\Notifications\DepositApproved;
 use App\Notifications\DepositDeclined;
 use App\Notifications\CommissionEarned;
 use Illuminate\Support\Facades\Log;
+use Livewire\WithPagination;
 
 #[Layout("components.layouts.admin")]
 class AdminDeposit extends Component
 {
+  use WithPagination;
+
   public $firstUpline;
 
   public $secondUpline;
