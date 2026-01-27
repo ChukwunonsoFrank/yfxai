@@ -366,7 +366,7 @@
 
                     <div class="flex justify-center mt-8">
                         <div>
-                            {{ $deposits->appends(['deposits_page' => $deposits->currentPage()])->links() }}
+                            {{ $deposits->appends(['deposits_page' => $deposits->currentPage()])->links('livewire::tailwind') }}
                         </div>
                     </div>
                 </div>
@@ -459,7 +459,7 @@
 
                     <div class="flex justify-center mt-8">
                         <div>
-                            {{ $withdrawals->appends(['withdrawals_page' => $withdrawals->currentPage()])->links() }}
+                            {{ $withdrawals->appends(['withdrawals_page' => $withdrawals->currentPage()])->links('livewire::tailwind') }}
                         </div>
                     </div>
                 </div>
@@ -591,7 +591,7 @@
 
                     <div class="flex justify-center mt-8">
                         <div>
-                            {{ $bots->appends(['bots_page' => $bots->currentPage()])->links() }}
+                            {{ $bots->appends(['bots_page' => $bots->currentPage()])->links('livewire::tailwind') }}
                         </div>
                     </div>
                 </div>
@@ -672,7 +672,7 @@
 
                     <div class="flex justify-center mt-8">
                         <div>
-                            {{ $referrals->appends(['referrals_page' => $referrals->currentPage()])->links() }}
+                            {{ $referrals->appends(['referrals_page' => $referrals->currentPage()])->links('livewire::tailwind') }}
                         </div>
                     </div>
                 </div>
