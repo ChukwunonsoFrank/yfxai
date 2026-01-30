@@ -368,7 +368,7 @@
                             <button type="button" wire:loading.attr="disabled"
                                 class="py-3 cursor-pointer px-4 w-full md:px-6 md:py-3 text-center gap-x-2 text-sm md:text-base font-semibold rounded-lg bg-accent text-black focus:outline-hidden disabled:opacity-50 disabled:pointer-events-none">
                                 <i wire:loading class="fa-solid fa-circle-notch fa-spin"></i>
-                                <span wire:loading.remove>Yes, I've paid</span>
+                                <span wire:loading.remove>Submit</span>
                             </button>
                         </a>
                     </div>

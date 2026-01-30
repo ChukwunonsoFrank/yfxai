@@ -133,7 +133,7 @@
                                             <td class="px-5 py-3 whitespace-nowrap sm:px-6">
                                                 <div class="flex items-center">
                                                     <p class="text-theme-sm text-gray-700 dark:text-gray-400">
-                                                        {{ $depositIntent['created_at'] }}
+                                                        {{ toBali($depositIntent['created_at'])->format('Y-m-d H:i:s') }}
                                                     </p>
                                                 </div>
                                             </td>
