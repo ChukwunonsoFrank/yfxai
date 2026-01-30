@@ -76,6 +76,15 @@
                     <div class="-mx-2.5 flex flex-wrap gap-y-5">
                         <div class="w-full px-2.5 xl:w-1/2">
                             <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
+                                Name
+                            </label>
+                            <input wire:model="name" type="text"
+                                class="dark:bg-dark-900 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 shadow-theme-xs placeholder:text-gray-400 focus:border-brand-300 focus:outline-hidden focus:ring-3 focus:ring-brand-500/10 dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 dark:focus:border-brand-800"
+                                readonly />
+                        </div>
+
+                        <div class="w-full px-2.5 xl:w-1/2">
+                            <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
                                 Payment Method
                             </label>
                             <input wire:model="paymentMethod" type="text"
@@ -104,7 +113,7 @@
 
                         <div class="w-full px-2.5 xl:w-1/2">
                             <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
-                                ID Image
+                                Payment Screenshot
                             </label>
                             @if ($this->paymentScreenshotPath)
                                 <img src="{{ route('private.file', ['path' => $this->paymentScreenshotPath]) }}"
@@ -114,6 +123,35 @@
                                     class="dark:bg-dark-900 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 shadow-theme-xs placeholder:text-gray-400 focus:border-brand-300 focus:outline-hidden focus:ring-3 focus:ring-brand-500/10 dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 dark:focus:border-brand-800"
                                     readonly />
                             @endif
+                        </div>
+
+                        <div class="w-full px-2.5 xl:w-1/2">
+                            <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
+                                Time
+                            </label>
+                            <input value="{{ toBali($this->deposit['created_at'])->format('Y-m-d H:i:s') }}"
+                                type="text"
+                                class="dark:bg-dark-900 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 shadow-theme-xs placeholder:text-gray-400 focus:border-brand-300 focus:outline-hidden focus:ring-3 focus:ring-brand-500/10 dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 dark:focus:border-brand-800"
+                                readonly />
+                        </div>
+
+                        <div class="w-full px-2.5 xl:w-1/2">
+                            <form
+                                wire:submit.prevent="approveDeposit({{ $deposit['id'] }}, {{ $deposit['user']['id'] }}, {{ $deposit['amount'] }})">
+                                <button type="submit" wire:loading.attr="disabled"
+                                    class="flex items-center justify-center w-full gap-2 p-3 text-sm font-medium text-white transition-colors rounded-lg bg-success-500 hover:bg-success-600 disabled:opacity-50 disabled:pointer-events-none">
+                                    Approve
+                                </button>
+                            </form>
+                        </div>
+                        <div class="w-full px-2.5 xl:w-1/2">
+                            <form
+                                wire:submit.prevent="declineDeposit({{ $deposit['id'] }}, {{ $deposit['user']['id'] }}, {{ $deposit['amount'] }})">
+                                <button type="submit" wire:loading.attr="disabled"
+                                    class="flex items-center justify-center w-full gap-2 p-3 text-sm font-medium text-white transition-colors rounded-lg bg-error-500 hover:bg-error-600 disabled:opacity-50 disabled:pointer-events-none">
+                                    Decline
+                                </button>
+                            </form>
                         </div>
                     </div>
                 </div>
