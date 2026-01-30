@@ -12,11 +12,14 @@ use Illuminate\Support\Facades\Notification;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Renderless;
 use Livewire\Attributes\Url;
+use Livewire\WithFileUploads;
 use Livewire\Component;
 
 #[Layout("components.layouts.app")]
 class ConfirmDeposit extends Component
 {
+  use WithFileUploads;
+
   #[Url]
   public $amount;
 
@@ -35,6 +38,19 @@ class ConfirmDeposit extends Component
   public $amountToPay;
 
   public $hasUserMadeTwoSuccessfulDeposits = false;
+
+  public $screenshot;
+
+  protected $rules = [
+    "screenshot" => "required|file|mimes:jpeg,jpg,png|max:5120",
+  ];
+
+  protected $messages = [
+    "screenshot.required" => "Please upload a screenshot of your payment.",
+    "screenshot.file" => "The uploaded file is not valid.",
+    "screenshot.mimes" => "ID document must be a JPEG, JPG or PNG file.",
+    "screenshot.max" => "ID document size cannot exceed 5MB.",
+  ];
 
   public function mount()
   {
@@ -55,12 +71,29 @@ class ConfirmDeposit extends Component
   public function createDeposit()
   {
     try {
+      $this->validate();
+    } catch (\Illuminate\Validation\ValidationException $e) {
+      $errors = $e->validator->errors()->all();
+      $this->dispatch(
+        "deposit-error",
+        message: implode(" ", $errors),
+      )->self();
+      return;
+    }
+
+    try {
       Deposit::create([
         "user_id" => auth()->user()->id,
         "payment_method" => $this->method,
         "amount" => $this->amount,
+        "payment_screenshot_path" => "payment-screenshot/" . $this->screenshot->getClientOriginalName(),
         "status" => "pending",
       ]);
+
+      $this->screenshot->storeAs(
+        path: "payment-screenshot",
+        name: $this->screenshot->getClientOriginalName(),
+      );
 
       /**
        * Send notifications to respective correspondents.

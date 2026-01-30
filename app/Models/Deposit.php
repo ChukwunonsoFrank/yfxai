@@ -8,17 +8,17 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Deposit extends Model
 {
-    protected $fillable = ['user_id', 'payment_method', 'amount', 'status'];
+  protected $fillable = ['user_id', 'payment_method', 'amount', 'payment_screenshot_path', 'status'];
 
-    protected $appends = ['created_at_formatted'];
+  protected $appends = ['created_at_formatted'];
 
-    public function getCreatedAtFormattedAttribute()
-    {
-        return Carbon::parse($this->created_at)->format('d.m.y');
-    }
+  public function getCreatedAtFormattedAttribute()
+  {
+    return Carbon::parse($this->created_at)->format('d.m.y');
+  }
 
-    public function user(): BelongsTo
-    {
-        return $this->belongsTo(User::class);
-    }
+  public function user(): BelongsTo
+  {
+    return $this->belongsTo(User::class);
+  }
 }

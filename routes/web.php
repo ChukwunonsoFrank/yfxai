@@ -18,6 +18,7 @@ use App\Livewire\Dashboard\History;
 use App\Livewire\Dashboard\Support;
 use App\Livewire\Settings\Password;
 use App\Livewire\Admin\AdminDeposit;
+use App\Livewire\Admin\AdminDepositDetails;
 use App\Livewire\Admin\AdminDepositIntent;
 use App\Livewire\Admin\UsersDetails;
 use App\Livewire\Dashboard\Withdraw;
@@ -230,6 +231,11 @@ Route::middleware(["auth", "admin"])
     Route::get("/dashboard/deposits", AdminDeposit::class)
       ->middleware(["auth", "verified"])
       ->name("dashboard.deposits");
+
+    Route::get("/dashboard/deposit/details", AdminDepositDetails::class)
+      ->middleware(["auth", "verified"])
+      ->name("dashboard.deposit.details");
+
     Route::get("/dashboard/depositintents", AdminDepositIntent::class)
       ->middleware(["auth", "verified"])
       ->name("dashboard.depositintents");

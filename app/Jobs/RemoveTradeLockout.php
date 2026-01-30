@@ -81,11 +81,11 @@ class RemoveTradeLockout implements ShouldQueue
         $lockedUser->save();
 
         // Send email to notify user when limit has lifted
-        $user->notify(
-          new LockoutRemoved(
-            $user["name"],
-          ),
-        );
+        // $user->notify(
+        //   new LockoutRemoved(
+        //     $user["name"],
+        //   ),
+        // );
       });
     } catch (\Exception $e) {
       logger()->error("User update failed: " . $e->getMessage(), [
@@ -114,11 +114,11 @@ class RemoveTradeLockout implements ShouldQueue
         $lockedUser->save();
 
         // Send email to notify user when limit has lifted
-        $user->notify(
-          new LockoutRemoved(
-            $user["name"],
-          ),
-        );
+        // $user->notify(
+        //   new LockoutRemoved(
+        //     $user["name"],
+        //   ),
+        // );
       });
     } catch (\Exception $e) {
       logger()->error("User update failed: " . $e->getMessage(), [
@@ -142,11 +142,11 @@ class RemoveTradeLockout implements ShouldQueue
         $lockedUser->save();
 
         // Send email to notify user when limit has lifted
-        $user->notify(
-          new LockoutRemoved(
-            $user["name"],
-          ),
-        );
+        // $user->notify(
+        //   new LockoutRemoved(
+        //     $user["name"],
+        //   ),
+        // );
       });
     } catch (\Exception $e) {
       logger()->error("User update failed: " . $e->getMessage(), [

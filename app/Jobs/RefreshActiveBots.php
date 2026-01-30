@@ -162,11 +162,11 @@ class RefreshActiveBots implements ShouldQueue
       $user = User::where("id", "=", $bot->user->id, "and")->first();
 
       // Send email to notify user when bot has expired
-      $user->notify(
-        new BotExpired(
-          $user['name'],
-        ),
-      );
+      // $user->notify(
+      //   new BotExpired(
+      //     $user['name'],
+      //   ),
+      // );
     } catch (\Exception $e) {
       // Log error instead of flash session (this is a queued job)
       logger()->error("Bot expiration failed: " . $e->getMessage(), [
