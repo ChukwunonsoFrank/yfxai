@@ -26,6 +26,21 @@ class AdminDepositIntent extends Component
 
   public int $level = 0;
 
+  public function getStatusIndicatorColor(string $status)
+  {
+    if ($status === "pending") {
+      return "bg-warning-50 text-warning-600";
+    }
+
+    if ($status === "confirmed") {
+      return "bg-success-50 text-success-600";
+    }
+
+    if ($status === "declined") {
+      return "bg-error-50 text-error-600";
+    }
+  }
+
   public function computeUpline(string $referredBy)
   {
     // Reset properties
@@ -175,10 +190,10 @@ class AdminDepositIntent extends Component
     }
   }
 
-  public function approveDeposit(string $paymentMethod, int $userId, int $amount)
+  public function approveDeposit(int $depositIntentId, string $paymentMethod, int $userId, int $amount)
   {
     try {
-      DB::transaction(function () use ($paymentMethod, $userId, $amount) {
+      DB::transaction(function () use ($depositIntentId, $paymentMethod, $userId, $amount) {
         // Lock the deposit record first to prevent concurrent approvals
         Deposit::create([
           "user_id" => $userId,
@@ -187,6 +202,17 @@ class AdminDepositIntent extends Component
           "payment_screenshot_path" => "",
           "status" => "confirmed",
         ]);
+
+        $depositIntent = DepositIntent::where("id", "=", $depositIntentId, "and")
+          ->lockForUpdate()
+          ->first();
+
+        if (!$depositIntent) {
+          throw new \Exception("Deposit intent not found");
+        }
+
+        $depositIntent->status = 'confirmed';
+        $depositIntent->save();
 
         // Lock the user record for balance update
         $user = User::where("id", "=", $userId, "and")

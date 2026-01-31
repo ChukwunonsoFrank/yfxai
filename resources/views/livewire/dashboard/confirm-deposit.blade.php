@@ -1,4 +1,4 @@
-<div x-data class="px-4 lg:px-0 h-full">
+<div x-data="{ uploadError: false }" class="px-4 lg:px-0 h-full">
     <div class="lg:flex lg:h-full">
         <livewire:dashboard.partials.desktop-navbar />
         <div class="lg:h-full lg:flex-1 lg:px-96 lg:pt-6">
@@ -96,8 +96,28 @@
                     </div>
 
                     <div class="mb-4">
-                        <label for="file-upload" class="text-sm font-semibold text-white block mb-2">Upload Payment
-                            Screenshot</label>
+                        <div class="flex items-center gap-x-1 mb-2">
+                            <label for="file-upload" class="text-sm font-semibold text-white">Upload Payment
+                                Screenshot</label>
+                            <svg x-show="uploadError" x-cloak width="14" height="14" viewBox="0 0 14 14" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0_27_18)">
+                                        <path
+                                            d="M6.99984 12.8333C10.2215 12.8333 12.8332 10.2216 12.8332 6.99996C12.8332 3.7783 10.2215 1.16663 6.99984 1.16663C3.77818 1.16663 1.1665 3.7783 1.1665 6.99996C1.1665 10.2216 3.77818 12.8333 6.99984 12.8333Z"
+                                            stroke="#EE1600" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path d="M7 4.66663V6.99996" stroke="#EE1600" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                        <path d="M7 9.33337H7.00583" stroke="#EE1600" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_27_18">
+                                            <rect width="14" height="14" fill="white" />
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+                        </div>
                         <div class="relative">
                             <div class="flex items-center gap-x-1">
                                 <div>
@@ -378,7 +398,7 @@
 
                     <div class="text-sm text-white rounded-lg bg-dashboard p-4 mb-2 mt-2" role="alert"
                         tabindex="-1" aria-labelledby="hs-with-description-label">
-                        <div class="flex items-start">
+                        <div class="flex items-center">
                             <div class="shrink-0">
                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -394,7 +414,7 @@
                                     </defs>
                                 </svg>
                             </div>
-                            <div class="ms-2">
+                            <div class="ms-1">
                                 <div class="text-xs text-zinc-300">
                                     Only send {{ $this->method }} to this wallet address.
                                 </div>
@@ -521,6 +541,7 @@
     <script>
         $wire.on('deposit-error', (event) => {
             toast('deposit-error', event.message);
+            Alpine.$data($wire.el).uploadError = true;
         });
     </script>
 @endscript

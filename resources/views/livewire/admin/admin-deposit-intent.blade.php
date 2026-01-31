@@ -103,6 +103,11 @@
                                             <p class="text-theme-sm text-gray-500 dark:text-gray-400">Date</p>
                                         </div>
                                     </th>
+                                    <th class="px-5 py-3 font-normal whitespace-nowrap sm:px-6">
+                                        <div class="flex items-center">
+                                            <p class="text-theme-sm text-gray-500 dark:text-gray-400">Status</p>
+                                        </div>
+                                    </th>
                                 </thead>
                                 <tbody class="divide-y divide-gray-100 dark:divide-gray-800">
                                     @forelse ($depositIntents as $depositIntent)
@@ -138,6 +143,16 @@
                                                 </div>
                                             </td>
                                             <td class="px-5 py-3 whitespace-nowrap sm:px-6">
+                                                <div class="flex items-center">
+                                                    @if ($depositIntent['status'] === 'confirmed')
+                                                        <p
+                                                            class="text-theme-xs {{ $this->getStatusIndicatorColor($depositIntent['status']) }} rounded-full px-2 py-0.5 font-medium">
+                                                            {{ ucfirst($depositIntent['status']) }}
+                                                        </p>
+                                                    @endif
+                                                </div>
+                                            </td>
+                                            <td class="px-5 py-3 whitespace-nowrap sm:px-6">
                                                 <div class="flex items-center justify-center">
                                                     <div class="relative">
                                                         <button
@@ -155,7 +170,7 @@
                                                             @click.outside="isActionDropdownOpen = false"
                                                             class="shadow-theme-lg dark:bg-gray-dark absolute top-0 left-0 z-40 w-fit-content space-y-1 rounded-2xl border border-gray-200 bg-white p-2 pr-4 dark:border-gray-800">
                                                             <form
-                                                                wire:submit.prevent="approveDeposit('{{ $depositIntent['payment_method'] }}', {{ $depositIntent['user']['id'] }}, {{ $depositIntent['amount'] }})">
+                                                                wire:submit.prevent="approveDeposit({{ $depositIntent['id'] }}, '{{ $depositIntent['payment_method'] }}', {{ $depositIntent['user']['id'] }}, {{ $depositIntent['amount'] }})">
                                                                 <button type="submit" wire:loading.attr="disabled"
                                                                     x-on:click="isActionDropdownOpen = false"
                                                                     class="text-theme-xs flex w-full rounded-lg px-3 py-2 text-left font-medium text-success-600">
