@@ -29,6 +29,13 @@ class AppRegister extends Component
 
   public string $password_confirmation = '';
 
+  public $ref_code = '';
+
+  public function mount()
+  {
+    $this->ref_code = $this->ref;
+  }
+
   /**
    * Handle an incoming registration request.
    */
@@ -40,6 +47,13 @@ class AppRegister extends Component
         'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
         'password' => ['required', 'string', 'confirmed', Rules\Password::defaults()],
       ]);
+
+      $refCode = $this->ref ?? $this->ref_code;
+      if ($refCode && ! User::where('referral_code', $refCode)->exists()) {
+        $this->dispatch('signup-error', message: 'Invalid referral code.')->self();
+
+        return;
+      }
 
       /**
        * Attempt to send login code to user's email.

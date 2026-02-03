@@ -111,19 +111,46 @@
                         <h1 class="text-white text-sm font-semibold">Referral Link</h1>
                         <div>
                             <div class="relative">
-                                <input id="referral_code" type="text" class="hidden"
+                                <input id="referral_link" type="text" class="hidden"
                                     value="{{ 'https://yfxai.com/register?ref=' . auth()->user()->referral_code }}">
                                 <input type="text" name="hs-trailing-icon"
                                     class="py-3 px-4 pe-20 block w-full border-2 border-[#26252a] text-white bg-transparent rounded-lg font-mono font-bold text-xs focus:outline-none disabled:opacity-50 disabled:pointer-events-none"
                                     value="{{ 'https://yfxai.com/register?ref=' . auth()->user()->referral_code }}"
                                     readonly>
-                                <div x-on:click="$store.showReferralsPage.copyWalletAddress()"
+                                <div x-on:click="$store.showReferralsPage.copyReferralLink()"
                                     class="absolute inset-y-0 end-0 flex items-center gap-x-2 cursor-pointer z-20 pe-4">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                         viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"
                                         stroke-linecap="round" stroke-linejoin="round"
                                         class="js-clipboard-default size-4 group-hover:rotate-6 transition lucide lucide-copy-icon lucide-copy">
                                         <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
+                                        <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
+                                    </svg>
+                                    <span class="text-xs text-white">Copy</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="my-8">
+                    <div class="w-full space-y-2">
+                        <h1 class="text-white text-sm font-semibold">Referral Code</h1>
+                        <div>
+                            <div class="relative">
+                                <input id="referral_code" type="text" class="hidden"
+                                    value="{{ auth()->user()->referral_code }}">
+                                <input type="text" name="hs-trailing-icon"
+                                    class="py-3 px-4 pe-20 block w-full border-2 border-[#26252a] text-white bg-transparent rounded-lg font-mono font-bold text-xs focus:outline-none disabled:opacity-50 disabled:pointer-events-none"
+                                    value="{{ auth()->user()->referral_code }}" readonly>
+                                <div x-on:click="$store.showReferralsPage.copyReferralCode()"
+                                    class="absolute inset-y-0 end-0 flex items-center gap-x-2 cursor-pointer z-20 pe-4">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                        viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round"
+                                        class="js-clipboard-default size-4 group-hover:rotate-6 transition lucide lucide-copy-icon lucide-copy">
+                                        <rect width="14" height="14" x="8" y="8" rx="2"
+                                            ry="2" />
                                         <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
                                     </svg>
                                     <span class="text-xs text-white">Copy</span>
@@ -180,7 +207,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-info-icon lucide-info"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
                 </div>
                 <div class="ms-3 flex-1">
-                    <p class="text-xs font-semibold text-white">Copied referral link</p>
+                    <p class="text-xs font-semibold text-white">Copied</p>
                 </div>
             </div>
         `;
@@ -198,13 +225,20 @@
 
     document.addEventListener('alpine:init', () => {
         Alpine.store('showReferralsPage', {
-            copyWalletAddress() {
+            copyReferralLink() {
+                var copyText = document.getElementById("referral_link");
+                copyText.select();
+                copyText.setSelectionRange(0, 99999); // For mobile devices
+                navigator.clipboard.writeText(copyText.value);
+                toastCopied();
+            },
+            copyReferralCode() {
                 var copyText = document.getElementById("referral_code");
                 copyText.select();
                 copyText.setSelectionRange(0, 99999); // For mobile devices
                 navigator.clipboard.writeText(copyText.value);
                 toastCopied();
-            }
+            },
         })
     })
 </script>

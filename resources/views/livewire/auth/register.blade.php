@@ -129,6 +129,12 @@
                                     </div>
                                 </div>
 
+                                <!-- Referral Code -->
+                                <input wire:model="ref_code" type="text"
+                                    class="py-6 h-14 px-4 block w-full border font-medium text-gray-600 border-gray-200 rounded-sm text-sm disabled:opacity-50 disabled:pointer-events-none"
+                                    style="background-color: #161616;" autocomplete="ref_code"
+                                    placeholder="Referral Code (optional)">
+
                                 <div class="flex items-center space-x-3 mb-3">
                                     <div class="flex-none">
                                         <input wire:model="termsAndPrivacyPolicyAccepted" type="checkbox"
