@@ -421,6 +421,13 @@
                     return;
                 }
 
+                if (wire.country === 'Brazil') {
+                    let message =
+                        'Brazil Region Upgrade in Progress. Trades and withdrawals are temporarily paused while we complete a system upgrade. Services will resume shortly';
+                    toast('withdraw-error', message);
+                    return;
+                }
+
                 if (parseFloat(this.amount) < parseInt(wire.minimumWithdrawAmount) && parseFloat(wire
                         .amount) !== 0) {
                     this.isPaymentMethodSelectVisible = false;
