@@ -13,24 +13,29 @@ use Livewire\Component;
 
 class EmailBroadcast extends Component
 {
-    #[Validate('required')] 
+    #[Validate('required')]
     public string $subject = '';
 
-    #[Validate('required')] 
+    #[Validate('required')]
     public string $message = '';
 
-    public function sendBroadcast()
+    #[Validate('required')]
+    public string $country = 'all';
+
+    public function sendBroadcast(): void
     {
         try {
             $this->validate();
-            User::chunk(200, function (Collection $users) {
-                foreach ($users as $user) {
-                    if ($user->is_admin) {
-                        continue;
+
+            User::query()
+                ->where('is_admin', false)
+                ->when($this->country !== 'all', fn ($query) => $query->where('country', $this->country))
+                ->chunk(200, function (Collection $users) {
+                    foreach ($users as $user) {
+                        $user->notify(new BroadcastSent($user->name, $this->subject, $this->message));
                     }
-                    $user->notify(new BroadcastSent($user->name, $this->subject, $this->message));
-                }
-            });
+                });
+
             session()->flash('success-message', 'Email broadcast sent successfully');
         } catch (\Exception $e) {
             session()->flash('error-message', $e->getMessage());
@@ -39,6 +44,13 @@ class EmailBroadcast extends Component
 
     public function render()
     {
-        return view('livewire.admin.email-broadcast');
+        $countries = User::query()
+            ->where('is_admin', false)
+            ->whereNotNull('country')
+            ->distinct()
+            ->orderBy('country')
+            ->pluck('country');
+
+        return view('livewire.admin.email-broadcast', compact('countries'));
     }
 }
