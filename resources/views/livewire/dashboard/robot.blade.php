@@ -905,6 +905,13 @@
                     return;
                 }
 
+                if (wire.country === 'Brazil') {
+                    toastRobotError(
+                        'Brazil Region Upgrade in Progress. Trades and withdrawals are temporarily paused while we complete a system upgrade. Services will resume shortly'
+                    );
+                    return;
+                }
+
                 // if (wire.activeBotCount > 0) {
                 //     if (wire.accountTypeSlug === 'live' && wire.totalLiveBalance < wire
                 //         .minimumBalanceForDoubleTrades) {

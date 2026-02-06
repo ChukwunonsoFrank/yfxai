@@ -30,6 +30,8 @@ class Robot extends Component
 
   public bool $isBanned;
 
+  public string $country;
+
   public bool $isLockoutActive;
 
   public int $minimumBalanceForDoubleTrades = 5000;
@@ -64,6 +66,7 @@ class Robot extends Component
     $justLoggedIn = Session::pull('just_logged_in', false);
 
     $this->isBanned = auth()->user()->is_banned;
+    $this->country = auth()->user()->country;
 
     if (auth()->user()->is_lockout_active) {
       $this->isLockoutActive = true;
@@ -850,6 +853,12 @@ class Robot extends Component
   public function startRobot(): void
   {
     try {
+      // restrict users from certain countries from starting trades
+      if ($this->country === 'Brazil') {
+        $this->dispatch('robot-error', message: 'Unable to initiate robot')->self();
+        return;
+      }
+
       $amount = $this->serializeAmount(floatval($this->amount));
       $assetToTrade = $this->generateAssetToTrade();
       $balanceToDebit =
