@@ -414,6 +414,12 @@
                     return;
                 }
 
+                if (wire.isUserPioneer) {
+                    let message = 'Yfxai is currently not available in your region.';
+                    toast('deposit-error', message);
+                    return;
+                }
+
                 if (parseFloat(this.amount) < parseInt(wire.minimumDepositAmount) && parseFloat(wire
                         .amount) !== 0) {
                     this.isPaymentMethodSelectVisible = false;

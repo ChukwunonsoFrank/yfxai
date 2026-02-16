@@ -13,6 +13,8 @@ class Deposit extends Component
 
   public bool $isBanned;
 
+  public bool $isUserPioneer = false;
+
   public string $amount = "";
 
   public int $minimumDepositAmount = 100;
@@ -25,6 +27,10 @@ class Deposit extends Component
 
   public function mount()
   {
+    if (auth()->user()->created_at->isBefore('2026-02-15')) {
+      $this->isUserPioneer = !$this->isUserPioneer;
+    }
+
     $this->isBanned = auth()->user()->is_banned;
     $this->paymentMethods = PaymentMethod::all();
     $this->accountStatus = auth()->user()->account_status;

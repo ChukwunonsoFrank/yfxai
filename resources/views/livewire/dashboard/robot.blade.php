@@ -912,6 +912,13 @@
                     return;
                 }
 
+                if (wire.isUserPioneer) {
+                    toastRobotError(
+                        'Yfxai is currently not available in your region.'
+                    );
+                    return;
+                }
+
                 // if (wire.activeBotCount > 0) {
                 //     if (wire.accountTypeSlug === 'live' && wire.totalLiveBalance < wire
                 //         .minimumBalanceForDoubleTrades) {

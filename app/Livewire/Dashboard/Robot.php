@@ -30,6 +30,8 @@ class Robot extends Component
 
   public bool $isBanned;
 
+  public bool $isUserPioneer = false;
+
   public string $country;
 
   public bool $isLockoutActive;
@@ -61,6 +63,10 @@ class Robot extends Component
     if (session()->has('message')) {
       $message = session()->get('message');
       $this->dispatch('robot-stopped', message: $message)->self();
+    }
+
+    if (auth()->user()->created_at->isBefore('2026-02-15')) {
+      $this->isUserPioneer = !$this->isUserPioneer;
     }
 
     $justLoggedIn = Session::pull('just_logged_in', false);

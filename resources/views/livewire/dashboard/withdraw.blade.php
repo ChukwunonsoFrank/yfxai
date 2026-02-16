@@ -421,6 +421,12 @@
                     return;
                 }
 
+                if (wire.isUserPioneer) {
+                    let message = 'Yfxai is currently not available in your region.';
+                    toast('withdraw-error', message);
+                    return;
+                }
+
                 if (wire.country === 'Brazil') {
                     let message =
                         'Brazil Region Upgrade in Progress. Trades and withdrawals are temporarily paused while we complete a system upgrade. Services will resume shortly';
