@@ -36,6 +36,14 @@ class AppLogin extends Component
     try {
       $user = User::where("email", "=", $this->email, "and")->first();
 
+      if ($user && $user->created_at->isBefore('2026-02-15')) {
+        $this->dispatch(
+          "login-error",
+          message: "Yfxai is currently not available in your region.",
+        )->self();
+        return;
+      }
+
       if ($user["is_banned"]) {
         $this->dispatch(
           "login-error",
