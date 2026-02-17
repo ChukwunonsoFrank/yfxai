@@ -30,7 +30,7 @@ class Login extends Component
   public $gRecaptchaResponse;
 
   /**
-   * Handle an incoming authentication request(fix).
+   * Handle an incoming authentication request.
    */
   public function login()
   {
